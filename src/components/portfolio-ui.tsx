@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function Reveal({ children, as: As = "div", delay = 0, className = "", ...rest }: any) {
   const ref = useRef<any>(null);
@@ -60,17 +60,20 @@ export function TagRow({ tags = [], lead = "teal", size = "md" }: any) {
 
 export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, imageUrl, src, className = "" }: any) {
   const imageSrc = img || image || imageUrl || src;
+  const [failed, setFailed] = useState(false);
+  useEffect(() => setFailed(false), [imageSrc]);
   return (
     <figure>
       <div
-        className={`${imageSrc ? "bg-card" : "placeholder"} w-full rounded-xl flex items-center justify-center overflow-hidden border border-rule shadow-card ${className}`}
+        className={`${imageSrc && !failed ? "bg-card" : "placeholder"} w-full rounded-xl flex items-center justify-center overflow-hidden border border-rule shadow-card ${className}`}
         style={aspectRatio ? { aspectRatio } : { height: h }}
       >
-        {imageSrc ? (
-          <img src={imageSrc} alt={label} className="w-full h-full object-cover object-top" />
+        {imageSrc && !failed ? (
+          <img src={imageSrc} alt={label} className="w-full h-full object-cover object-top" onError={() => setFailed(true)} />
         ) : (
           <div className="text-center px-6">
             <div className="display text-xl md:text-2xl text-ink/70">{label}</div>
+            {failed && <div className="eyebrow-sm mt-3 text-muted">Image failed to load</div>}
           </div>
         )}
       </div>
