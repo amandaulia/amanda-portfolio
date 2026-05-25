@@ -52,9 +52,6 @@ function Hero() {
                 <Link to="/work" className="text-[14px] font-medium bg-ink text-paper px-5 py-3 rounded-full hover:bg-teal transition-colors">
                   See the work →
                 </Link>
-                <a href="mailto:amanda.hanggoro@gmail.com" className="text-[14px] font-medium text-ink px-5 py-3 rounded-full border border-rule hover:border-ink transition-colors">
-                  Get in touch
-                </a>
               </div>
             </Reveal>
 

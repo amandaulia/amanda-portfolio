@@ -3,9 +3,9 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-paper: #FFF8F6;
+  --color-paper: #e3e0e1;
   --color-paperLo: #FBE9E6;
-  --color-ink: #1A1F2E;
+  --color-ink: #1c1e2e;
   --color-inkSoft: #3D4458;
   --color-muted: #7B7E94;
   --color-rule: #ECDCD9;
@@ -13,7 +13,7 @@
   --color-chip: #F4E1DE;
   --color-white: #FFFFFF;
 
-  --color-teal: #2A3D7A;
+  --color-teal: #1c1e2e;
   --color-tealHi: #3A4D8C;
   --color-tealLo: #1A2D5A;
   --color-tealSoft: #92A8D1;
@@ -92,6 +92,24 @@ body { font-family: "DM Sans", system-ui, sans-serif; -webkit-font-smoothing: an
 }
 .ulink:hover::after { transform: scaleX(1); }
 
+button,
+a[class*="bg-ink"],
+a[class*="rounded-full"][href^="mailto:"],
+a[class*="rounded-full"][href="/"],
+a[class*="rounded-full"][href^="/work"] {
+  background-color: #1c1e2e;
+  color: #e3e0e1;
+}
+
+button:hover,
+a[class*="bg-ink"]:hover,
+a[class*="rounded-full"][href^="mailto:"]:hover,
+a[class*="rounded-full"][href="/"]:hover,
+a[class*="rounded-full"][href^="/work"]:hover {
+  background-color: #1c1e2e;
+  color: #e3e0e1;
+}
+
 .placeholder {
   background:
     radial-gradient(110% 80% at 50% 0%, rgba(100,130,202,0.20), transparent 60%),
@@ -117,30 +135,30 @@ body { font-family: "DM Sans", system-ui, sans-serif; -webkit-font-smoothing: an
   padding: 6px 12px; border-radius: 9999px;
   font-family: "DM Sans", system-ui, sans-serif;
   font-size: 12.5px; font-weight: 500; letter-spacing: 0.01em;
-  color: #3D4458; background: #F4E1DE;
+  color: #554a51; background: #eddce6;
   border: 1px solid transparent;
   transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease;
 }
-.chip:hover { background: #EBD0CC; color: #1A1F2E; }
-.chip-outline { background: transparent; border-color: #ECDCD9; color: #7B7E94; }
-.chip-outline:hover { border-color: #1A1F2E; color:#1A1F2E; background: transparent; }
-.chip-teal     { background: #B5C2E0; color: #1A2D5A; }
-.chip-teal:hover     { background: #A0AFD5; }
-.chip-rose     { background: #F7CAC9; color: #A35251; }
-.chip-rose:hover     { background: #F0B0AF; }
-.chip-serenity { background: #C9D4ED; color: #3A4A7B; }
-.chip-serenity:hover { background: #B5C2E0; }
-.chip-lavender { background: #E0CBE0; color: #724B73; }
-.chip-lavender:hover { background: #D2B8D2; }
-.chip-soft-teal { background: #92A8D1; color: #1A2D5A; }
-.chip-soft-teal:hover { background: #7E96C5; }
-.chip-ink      { background: #1A1F2E; color: #FFF8F6; }
-.chip-ochre    { background: #F7CAC9; color: #A35251; }
-.chip-peach    { background: #F7CAC9; color: #A35251; }
-.chip-amber    { background: #E0CBE0; color: #724B73; }
-.chip-sage     { background: #C9D4ED; color: #3A4A7B; }
-.chip-sky      { background: #B5C2E0; color: #1A2D5A; }
-.chip-coral    { background: #F7CAC9; color: #A35251; }
+.chip:hover { background: #eddce6; color: #554a51; }
+.chip-outline { background: #eddce6; border-color: transparent; color: #554a51; }
+.chip-outline:hover { border-color: transparent; color:#554a51; background: #eddce6; }
+.chip-teal     { background: #eddce6; color: #554a51; }
+.chip-teal:hover     { background: #eddce6; }
+.chip-rose     { background: #eddce6; color: #554a51; }
+.chip-rose:hover     { background: #eddce6; }
+.chip-serenity { background: #eddce6; color: #554a51; }
+.chip-serenity:hover { background: #eddce6; }
+.chip-lavender { background: #eddce6; color: #554a51; }
+.chip-lavender:hover { background: #eddce6; }
+.chip-soft-teal { background: #eddce6; color: #554a51; }
+.chip-soft-teal:hover { background: #eddce6; }
+.chip-ink      { background: #eddce6; color: #554a51; }
+.chip-ochre    { background: #eddce6; color: #554a51; }
+.chip-peach    { background: #eddce6; color: #554a51; }
+.chip-amber    { background: #eddce6; color: #554a51; }
+.chip-sage     { background: #eddce6; color: #554a51; }
+.chip-sky      { background: #eddce6; color: #554a51; }
+.chip-coral    { background: #eddce6; color: #554a51; }
 .chip-dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; opacity: 0.65; }
 
 .cs-card { transition: background-color 300ms ease, transform 280ms cubic-bezier(.2,.7,.2,1), box-shadow 280ms ease; }
