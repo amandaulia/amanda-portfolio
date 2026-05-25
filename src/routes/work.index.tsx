@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "../components/portfolio-ui";
 import { FeaturedGrid } from "../components/featured-grid";
 
-export const Route = createFileRoute("/work")({
+export const Route = createFileRoute("/work/")({
   head: () => ({
     meta: [
       { title: "Work — Amanda Hanggoro" },
