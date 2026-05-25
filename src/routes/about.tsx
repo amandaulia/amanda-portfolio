@@ -7,7 +7,11 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Amanda Hanggoro" },
-      { name: "description", content: "Product Manager · NYU Stern Tech MBA · Building products that move people, from behavior change to operational transformation." },
+      {
+        name: "description",
+        content:
+          "Product Manager · Building products that move people, from behavior change to operational transformation.",
+      },
       { property: "og:title", content: "About — Amanda Hanggoro" },
       { property: "og:description", content: "Experience, publications, mentoring, community, and awards." },
     ],
@@ -18,14 +22,28 @@ export const Route = createFileRoute("/about")({
 function AboutHero() {
   return (
     <section className="relative border-b border-rule overflow-hidden grad-hero">
-      <div className="pointer-events-none absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full opacity-35" style={{ background: "radial-gradient(circle, rgba(100,130,202,0.7) 0%, transparent 55%)", filter: "blur(50px)" }} />
-      <div className="pointer-events-none absolute -bottom-48 -left-40 w-[640px] h-[640px] rounded-full opacity-50" style={{ background: "radial-gradient(circle, rgba(224,193,211,0.85) 0%, transparent 55%)", filter: "blur(50px)" }} />
+      <div
+        className="pointer-events-none absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full opacity-35"
+        style={{
+          background: "radial-gradient(circle, rgba(100,130,202,0.7) 0%, transparent 55%)",
+          filter: "blur(50px)",
+        }}
+      />
+      <div
+        className="pointer-events-none absolute -bottom-48 -left-40 w-[640px] h-[640px] rounded-full opacity-50"
+        style={{
+          background: "radial-gradient(circle, rgba(224,193,211,0.85) 0%, transparent 55%)",
+          filter: "blur(50px)",
+        }}
+      />
       <div className="relative max-w-[1280px] mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-16 md:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
           <div className="md:col-span-7">
             <Reveal>
               <div className="flex items-center gap-3 flex-wrap">
-                <Chip variant="teal" dotColor="#0E4D45">Currently — PM at Wego</Chip>
+                <Chip variant="teal" dotColor="#0E4D45">
+                  Currently — PM at Wego
+                </Chip>
                 <span className="eyebrow-sm">Jakarta, ID</span>
               </div>
             </Reveal>
@@ -38,16 +56,26 @@ function AboutHero() {
             </Reveal>
             <Reveal delay={140}>
               <p className="mt-8 text-[19px] md:text-[20px] leading-[1.6] text-ink/85 max-w-xl">
-                Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving conversion, retention, and operational efficiency across <span className="text-ink font-medium">Southeast Asia, MENA, and the United States.</span>
+                Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
+                private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving
+                conversion, retention, and operational efficiency across{" "}
+                <span className="text-ink font-medium">Southeast Asia, MENA, and the United States.</span>
               </p>
               <p className="mt-5 text-[17px] leading-[1.6] text-muted max-w-xl">
-                NYU Stern Tech MBA <span className="dot"></span> Dean's List, Beta Gamma Sigma Honor. I also build databases, automations, and full-stack applications independently, check it at <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">github.com/amandaulia</a>.
+                I also build databases, automations, and full-stack applications independently, check it at{" "}
+                <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">
+                  github.com/amandaulia
+                </a>
+                .
               </p>
             </Reveal>
           </div>
           <div className="md:col-span-5">
             <Reveal delay={120}>
-              <div className="placeholder w-full overflow-hidden rounded-md shadow-warm border border-rule flex items-center justify-center" style={{ aspectRatio: "4 / 5" }}>
+              <div
+                className="placeholder w-full overflow-hidden rounded-md shadow-warm border border-rule flex items-center justify-center"
+                style={{ aspectRatio: "4 / 5" }}
+              >
                 <div className="text-center px-6">
                   <div className="eyebrow-sm">[ portrait ]</div>
                   <div className="display text-2xl md:text-3xl mt-2 text-ink/75">Amanda Hanggoro</div>
@@ -74,7 +102,10 @@ function ExperienceSection() {
         <Reveal delay={80}>
           <ol className="mt-10 border-t border-rule">
             {EXPERIENCE.map((x: any, i: number) => (
-              <li key={i} className={`grid grid-cols-12 gap-6 py-7 md:py-8 ${i === EXPERIENCE.length - 1 ? "" : "border-b border-rule"}`}>
+              <li
+                key={i}
+                className={`grid grid-cols-12 gap-6 py-7 md:py-8 ${i === EXPERIENCE.length - 1 ? "" : "border-b border-rule"}`}
+              >
                 <div className="col-span-12 md:col-span-3">
                   <div className="eyebrow-sm">{x.period}</div>
                   <div className="text-[13px] text-muted mt-1">{x.location}</div>
@@ -82,7 +113,11 @@ function ExperienceSection() {
                 <div className="col-span-12 md:col-span-9">
                   <div className="flex items-baseline gap-3 flex-wrap">
                     <h3 className="display text-[22px] md:text-[26px] text-ink">{x.company}</h3>
-                    {x.current && <Chip variant="teal" dotColor="#0E4D45">Current</Chip>}
+                    {x.current && (
+                      <Chip variant="teal" dotColor="#0E4D45">
+                        Current
+                      </Chip>
+                    )}
                     {!x.current && x.tag && <Chip variant={x.accent === "ochre" ? "ochre" : "solid"}>{x.tag}</Chip>}
                   </div>
                   <div className="mt-1 text-[15px] text-ink/85 font-medium">{x.role}</div>
@@ -101,7 +136,9 @@ function PublicationsSection() {
   return (
     <section className="border-b border-rule" style={{ background: "#e5eaf6" }}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
-        <Reveal><SectionHead kicker="Press & Publications" title="Appearances" tone="ochre" /></Reveal>
+        <Reveal>
+          <SectionHead kicker="Press & Publications" title="Appearances" tone="ochre" />
+        </Reveal>
         <ul className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-rule border border-rule">
           {PUBLICATIONS.map((p: any, i: number) => (
             <li key={i} style={{ background: "#e5eaf6" }}>
@@ -143,7 +180,8 @@ function CommunitySection() {
         <Reveal>
           <SectionHead kicker="Mentoring & Community" title="Volunteering activities" />
           <p className="mt-5 text-[16px] text-ink/75 max-w-2xl leading-[1.6]">
-            Where I've given time outside paid work to mentoring aspiring product managers, building community around mental health, and contributing to international-development conversations.
+            Where I've given time outside paid work to mentoring aspiring product managers, building community around
+            mental health, and contributing to international-development conversations.
           </p>
         </Reveal>
 
@@ -189,7 +227,15 @@ function CommunitySection() {
 
         <div className="mt-10 text-[14px] text-muted">
           Full details on{" "}
-          <a href="https://www.linkedin.com/in/amanda-aulia/details/volunteering-experiences/" target="_blank" rel="noreferrer" className="ulink text-ink">LinkedIn ↗</a>.
+          <a
+            href="https://www.linkedin.com/in/amanda-aulia/details/volunteering-experiences/"
+            target="_blank"
+            rel="noreferrer"
+            className="ulink text-ink"
+          >
+            LinkedIn ↗
+          </a>
+          .
         </div>
       </div>
     </section>
@@ -237,7 +283,11 @@ function ToolkitContactSection() {
                   <div key={group}>
                     <div className="eyebrow-sm text-ochre">{group}</div>
                     <ul className="mt-3 flex flex-wrap gap-2">
-                      {(items as string[]).map((s) => <li key={s}><Chip>{s}</Chip></li>)}
+                      {(items as string[]).map((s) => (
+                        <li key={s}>
+                          <Chip>{s}</Chip>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 ))}
@@ -249,8 +299,12 @@ function ToolkitContactSection() {
                 <SectionHead kicker="Education" />
                 <div className="mt-4 space-y-5">
                   <div>
-                    <div className="display text-[22px] md:text-[26px]">NYU Stern · Leonard N. Stern School of Business</div>
-                    <div className="text-[14px] text-muted mt-1">MBA, Tech MBA Program · Dean's List · Beta Gamma Sigma Honor</div>
+                    <div className="display text-[22px] md:text-[26px]">
+                      NYU Stern · Leonard N. Stern School of Business
+                    </div>
+                    <div className="text-[14px] text-muted mt-1">
+                      MBA, Tech MBA Program · Dean's List · Beta Gamma Sigma Honor
+                    </div>
                     <div className="text-[13px] text-muted mt-0.5">May 2023 — May 2024 · New York, USA</div>
                   </div>
                   <div>
@@ -272,24 +326,43 @@ function ToolkitContactSection() {
                     <div className="eyebrow-sm">Email</div>
                     <div className="display text-[22px] md:text-[26px] mt-1">amanda.hanggoro@gmail.com</div>
                   </div>
-                  <a href="mailto:amanda.hanggoro@gmail.com" className="ulink text-[14px] font-medium">→</a>
+                  <a href="mailto:amanda.hanggoro@gmail.com" className="ulink text-[14px] font-medium">
+                    →
+                  </a>
                 </li>
                 <li className="py-5 flex items-center justify-between gap-6">
                   <div>
                     <div className="eyebrow-sm">LinkedIn</div>
                     <div className="display text-[22px] md:text-[26px] mt-1">/in/amanda-aulia</div>
                   </div>
-                  <a href="https://www.linkedin.com/in/amanda-aulia" target="_blank" rel="noreferrer" className="ulink text-[14px] font-medium">↗</a>
+                  <a
+                    href="https://www.linkedin.com/in/amanda-aulia"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="ulink text-[14px] font-medium"
+                  >
+                    ↗
+                  </a>
                 </li>
                 <li className="py-5 flex items-center justify-between gap-6">
                   <div>
                     <div className="eyebrow-sm">GitHub</div>
                     <div className="display text-[22px] md:text-[26px] mt-1">/amandaulia</div>
                   </div>
-                  <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-[14px] font-medium">↗</a>
+                  <a
+                    href="https://github.com/amandaulia"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="ulink text-[14px] font-medium"
+                  >
+                    ↗
+                  </a>
                 </li>
               </ul>
-              <a href="mailto:amanda.hanggoro@gmail.com" className="mt-10 inline-block text-[14px] font-medium bg-ink text-paper px-5 py-3 rounded-full hover:bg-teal transition-colors">
+              <a
+                href="mailto:amanda.hanggoro@gmail.com"
+                className="mt-10 inline-block text-[14px] font-medium bg-ink text-paper px-5 py-3 rounded-full hover:bg-teal transition-colors"
+              >
                 Start a conversation →
               </a>
             </Reveal>

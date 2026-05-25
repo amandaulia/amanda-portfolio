@@ -7,8 +7,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "01",
     kind: "hero",
     company: "Elysium Mentalcare",
-    title: "Building Comprehensive Mental Health Directory",
-    hook: "Independently develop a mental health directory that 10 million people access from MVP to full launched website.",
+    title: "Developing Comprehensive Mental Health Directory",
+    hook: "Independently build a mental health directory that 10 million people access from MVP to full launched website.",
     role: "Founder & Product Builder",
     period: "2019 — present",
     geo: "Indonesia",
@@ -52,15 +52,19 @@ export const CASE_STUDIES: CaseStudy[] = [
       "A single, searchable directory that is built, designed, schema'd, and edited by one person. A website that organizes the question the way the user actually asks it, with an AI pipeline behind it that lets a one-person operation keep ten million people's resource list fresh.",
     placeholders: [
       {
+        caption: "Live directory on mentalhealthid.lovable.app",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Live%20App.png",
       },
       {
+        caption: "The first MVP in 2020 published through Carrd",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/MVP%20Carrd.png",
       },
       {
+        caption: "View of advanced filtering on the web",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Advanced%20Filtering.png",
       },
       {
+        caption: "View of the detail page with comprehensive information",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Detail%20Page.png",
       },
     ],
@@ -70,7 +74,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "02",
     kind: "hero",
     company: "Ruangguru",
-    title: "Gamification That Sparks Learning Motivation",
+    title: "Designing Gamification That Sparks Learning Motivation",
     hook: "Turning the virtual pet to a gamification feature that actually encourages and converts users to learn.",
     role: "Associate Product Manager",
     period: "2021 — 2022",
@@ -99,12 +103,15 @@ export const CASE_STUDIES: CaseStudy[] = [
       "We rebuilt the mission system around what the learner was actually trying to do that week (exam prep, catch-up, or maintenance) so missions align with study plan. Pet health and evolution became immediate and visible by showing micro interaction for every learning activities and level progression for every mission set completed, replacing the weeks-long evolution.",
     placeholders: [
       {
+        caption: "Before and after of the Pet Hub",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Pet%20Hub.png",
       },
       {
+        caption: "Before and after of the Mission Hub",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Mission%20Hub.png",
       },
       {
+        caption: "View of the page to explore levels and see progression",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Jelajah%20Level.png",
       },
     ],
@@ -114,8 +121,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "03",
     kind: "hero",
     company: "Knowtex",
-    title: "Making AI Work for Clinicians",
-    hook: "Removing humans from the onboarding funnel, without losing the human touch.",
+    title: "Automating Clinical Workflow with Efficiency & Accuracy",
+    hook: "Creating an end-to-end solution that does more so clinicians can focus on things that matter.",
     role: "Product Manager",
     period: "2024",
     geo: "New York, USA (Remote)",
@@ -124,28 +131,37 @@ export const CASE_STUDIES: CaseStudy[] = [
     metrics: [
       { value: "+30%", label: "customer base" },
       { value: "⅘", label: "NPS" },
-      { value: "2+ hrs", label: "saved per clinician / day" },
+      { value: "2+ hrs", label: "saved per clinician/day" },
     ],
     problem:
-      "Every new clinician required a founder or salesperson on-site to teach them how to adopt the tool. There was no self-serve path, and the one onboarding flow that existed every specialization from oncology and orthopedic practices the same.",
+      "Every new clinician required a founder or salesperson on-site to teach them how to adopt the tool. There was no self-serve path, and the one onboarding flow that existed every specialization from oncology and orthopedic practices the same. The product also focused more on promoting structured notes generation than highlighting the pain point of the whole end-to-end workflow.",
     process: [
-      { t: "Journey mapping", d: "Mapped the clinician onboarding journey end-to-end across different specialties." },
-      { t: "In-platform guidance", d: "Designed an embedded guided experience replacing the on-site walkthrough." },
+      { t: "Journey Mapping", d: "Mapped the clinician onboarding journey end-to-end across different specialties." },
+      { t: "In-Platform Guidance", d: "Designed an embedded guided experience replacing the on-site walkthrough." },
       {
-        t: "Specialty-aware flows",
-        d: "Built specialized notes format for oncology, orthopedic, and other specialities.",
+        t: "Specialty-Aware Flows",
+        d: "Built specialized notes format and coding for oncology, orthopedic, and other specialities.",
       },
       {
-        t: "Behavior-triggered feedback",
-        d: "Milestone prompts (e.g. after 5 notetaking sessions/week) to gain just-in-time feedback.",
+        t: "EHR Integration",
+        d: "Integrated notes, coding, and billing into existin EHR/EMR for a seamless organizational workflow",
       },
     ],
     solution:
-      "Self-serve onboarding that moves along with the pace of the clinicians, paired with feedback prompts that arrived when a milestone is hit in their user journey. Combined with EHR integration and coding/billing automation, the product crossed from 'requires a human to install' to 'installs itself.'",
+      "Self-serve onboarding that moves along with the pace of the clinicians, paired with specialty-aware customization. Combined with EHR integration and coding/billing automation, the product crossed from 'requires a human to install' to 'installs itself.'",
     placeholders: [
-      { label: "Onboarding flow screenshot", caption: "End-to-end self-serve walkthrough", h: 360 },
-      { label: "Specialty selection UI", caption: "Branching point that personalizes the rest of the flow", h: 260 },
-      { label: "Feedback prompt UI", caption: "Triggered after a behavioral milestone, not a date", h: 260 },
+      {
+        caption: "Onboarding flow design",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Onboarding%20Flow.png",
+      },
+      {
+        caption: "Specialty-specific notes and coding customization",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Customization.png",
+      },
+      {
+        caption: "Integrated with the organization's EHR/EMR",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/EHR%20Integration.png",
+      },
     ],
   },
   {
@@ -161,7 +177,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: "Enterprise · AI",
     tags: ["Enterprise", "AI/ML", "GenAI", "FinTech"],
     metrics: [
-      { value: "3 hrs/day", label: "saved per stock analyst on research" },
+      { value: "3h/day", label: "saved per stock analyst on research" },
       { value: "2M", label: "students and underrepresented communities reached" },
       { value: "1st", label: "watsonx example for IBM SkillsBuild" },
     ],
@@ -178,7 +194,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         t: "Proof of Concept",
-        d: "Built the PoC in three stages using IBM watsonx tools: AutoAI for ML-based anomaly detection, Jupyter Notebook for automated article extraction via TheNewsAPI, and Prompt Lab for generative AI summarization and RAG-based Q&A using IBM's Granite model.",
+        d: "Built the PoC in three stages using IBM watsonx tools: anomaly detection, article extraction , GenAI summarization, and RAG-based Q&A using IBM's Granite model.",
       },
       {
         t: "Optimization",
@@ -190,16 +206,21 @@ export const CASE_STUDIES: CaseStudy[] = [
       "An end-to-end stock anomaly analysis workflow replacing the manual process: AutoAI detects anomalies from historical stock data, Jupyter Notebook automatically sources and extracts relevant news articles, Prompt Lab summarizes events causing anomalies, and RAG-powered Q&A enables analysts to drill deeper into any finding.",
     placeholders: [
       {
-        label: "AutoAI anomaly detection",
-        caption: "Historical stock data flags unusual performance movement",
-        h: 320,
+        caption: "Stock research workflow mapping",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Workflow.png",
       },
       {
-        label: "Article extraction workflow",
-        caption: "Jupyter Notebook sourcing relevant news through TheNewsAPI",
-        h: 280,
+        caption: "Long-text chunking using LangChain",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Text%20Chunking.png",
       },
-      { label: "Prompt Lab summarization + RAG", caption: "Granite-powered summaries and follow-up Q&A", h: 280 },
+      {
+        caption: "Training the model to output summarization",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Training.png",
+      },
+      {
+        caption: "Result of the overall workflow in action",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Result.png",
+      },
     ],
   },
   {
@@ -227,25 +248,25 @@ export const CASE_STUDIES: CaseStudy[] = [
         d: "Mapped the full onboarding and verification journey to identify where manual handoffs caused delays.",
       },
       {
-        t: "Cross-Functional Collaboration",
-        d: "Worked with sales, business, legal, and engineer teams to streamline the document verification flow and digitalize the contract signing process.",
+        t: "Solution & Tools Exploration",
+        d: "Collaborated with engineer to evaluate multiple KYC, KYB, and digital signature vendors and analyze the feasibility to implement.",
+      },
+      {
+        t: "Cross-Functional Implementation",
+        d: "Worked with sales, business, legal, and finance to finalize the document verification flow and digitalize the contract signing process.",
       },
     ],
     solution:
       "A digitalized KYC/KYB verification and contract signing flow that eliminated the manual document processing bottleneck, replacing a week-long back-and-forth with an automated verification pipeline and digital signature. Clients go from sign-up to feature-ready in under 24 hours.",
     placeholders: [
       {
-        label: "Digital KYC/KYB flow",
-        caption: "Document verification moved from manual review to automated pipeline",
-        h: 320,
+        caption: "Streamlined registration requirements",
+        img: "",
       },
       {
-        label: "Digital contract signing",
-        caption: "Replacing physical signatures with faster business activation",
-        h: 280,
+        caption: "New KYC/KYB automated final step",
+        img: "",
       },
-      { label: "Activation journey", caption: "From sign-up to feature-ready in under 24 hours", h: 280 },
-    ],
   },
   {
     slug: "returnkey",
@@ -253,7 +274,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     kind: "hero",
     company: "ReturnKey",
     title: "Product Metadata Enrichment with a Single Scan",
-    hook: "Previously even manual sorting through 3 stations gives us little to learn and work with. Now one scan lets us know everything about the product.",
+    hook: "Manual sorting through 3 stations gives us little to learn and work with. Now one scan of the product lets us know enough to make smart commercial decision.",
     role: "Product Manager",
     period: "Aug 2024 — Sep 2025",
     geo: "Jakarta, ID & Nashville, USA (Remote)",
@@ -267,24 +288,29 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Returned and overstock inventory moved through two or three manual sorting stations before it could be re-listed. Even through the steps, we still know very little about the product to make meaningful commercial decision. Moreover, the process is expensive and especially tricky with items that are unlabeled, have obscure barcodes, near-identical variants, and mismatched information between manifest and real items.",
     process: [
       {
-        t: "Enrichment pipeline",
+        t: "Enrichment Pipeline",
         d: "Co-designed lexical + semantic analysis, web scrapers, and LLM enrichment with CTO and VP of Data.",
       },
       {
-        t: "Single-scan and print workflow",
+        t: "Scan & Print Workflow",
         d: "Single-scan triggers a whole enrichment system that lets processor only need to label the product with the barcode the machine printed.",
       },
       {
-        t: "Pricing experimentation",
+        t: "Pricing Experimentation",
         d: "Built a system for markdowns, switchback tests, and A/B pricing experiments of the products based on the information we learn.",
       },
     ],
     solution:
       "One station, one operator: scan an item, the LLM recognizes and categorizes it, the workflow logs and prints. Pricing experiments run continuously underneath so the floor never stops learning what the inventory is worth.",
     placeholders: [
-      { label: "System architecture diagram", caption: "Enrichment pipeline + experiment harness", h: 320 },
-      { label: "Before/after workflow", caption: "3-station manual → single-station assisted", h: 260 },
-      { label: "Barcode scan UI", caption: "Operator surface — scan, identify, confirm", h: 280 },
+      {
+        caption: "Categorization and pricing logic",
+        img: "",
+      },
+      {
+        caption: "Single scan enrichment flow",
+        img: "",
+      },
     ],
   },
   {
@@ -300,8 +326,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: "Social Impact",
     tags: ["Social Impact", "Digitalization"],
     metrics: [
-      { value: "174", label: "innovative projects across 16 countries" },
-      { value: "Days", label: "saved per data collection cycle" },
+      { value: "174", label: "innovative projects" },
+      { value: "16", label: "participating countries" },
       { value: "4", label: "continents with improved reporting accuracy" },
     ],
     problem:
@@ -324,15 +350,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       "A field-accessible, offline-capable digital form with built-in data validation that standardized inputs at the point of entry, eliminating the need for post-collection correction cycles. Adopted by national coordinators, NGOs, and grantees without requiring technical expertise.",
     placeholders: [
       {
-        label: "Offline-capable M&E form",
-        caption: "Field-accessible data collection with built-in validation",
-        h: 320,
+        caption: "Old M&E tool using Excel sheet",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Old%20PMT.png",
       },
-      { label: "Training documentation", caption: "Step-by-step guidance for country office staff", h: 280 },
       {
-        label: "Regional reporting workflow",
-        caption: "Standardized inputs across distributed activation countries",
-        h: 280,
+        caption: "New online/offline form with advanced feature and logic",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/New%20Jotform.png",
       },
     ],
   },
@@ -349,6 +372,7 @@ export const SKILLS: Record<string, string[]> = {
     "ChatGPT",
     "Gemini",
     "OpenClaw",
+    "Qwen Studio",
     "n8n",
     "NotebookLM",
     "IBM watsonx",
@@ -375,9 +399,9 @@ export const EXPERIENCE: any[] = [
     tag: "Enterprise · AI",
   },
   {
-    company: "UNDP",
+    company: "United Nations Development Programme",
     role: "Junior Digital Solutions & M&E Officer",
-    period: "Feb 2025 — Jul 2025",
+    period: "Feb — Jul 2025",
     location: "Remote",
     note: "Researched fintech and climate-tech tools and mobile payments to support performance-based payments for ecosystem services.",
     tag: "Social Impact · Project-Based",
@@ -417,7 +441,7 @@ export const EXPERIENCE: any[] = [
     tag: "Enterprise · AI · Project-Based",
   },
   {
-    company: "UNDP",
+    company: "United Nations Development Programme",
     role: "Project Management Support",
     period: "Feb 2024 — Jul 2024",
     location: "New York, USA (Hybrid)",
@@ -513,19 +537,19 @@ export const MENTORING: any[] = [
   {
     title: "Product Management Mentor",
     org: "RISTEK FILKOM Universitas Indonesia",
-    period: "Jul 2022 — Aug 2022",
+    period: "Jul — Aug 2022",
     body: "Facilitated 2 mentees preparing for startup careers in product management through mentoring sessions about the industry, the role, and its recruitment process.",
   },
   {
     title: "Social Impact Project Mentor",
     org: "Leaders Cafe",
-    period: "Oct 2021 — Nov 2021",
+    period: "Oct — Nov 2021",
     body: "Facilitated 3 mentees in aligning Café Class learnings with their personal objectives, sharing peer insights, and applying them to self-development routines and a problem-solving group project.",
   },
   {
     title: "Ganesha Academy: Pioneer (GAP) Mentor",
     org: "Kabinet KM ITB · Health Cluster",
-    period: "Jan 2021 — Feb 2021",
+    period: "Jan — Feb 2021",
     body: "Selected mental-health mentor on the strength of Mental Wellness Movie Club. Worked with 6 GAP participants to create a 3-day film festival on ITB academic life and was the speaker for the mental-health session.",
   },
 ];
