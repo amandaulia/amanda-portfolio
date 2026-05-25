@@ -64,20 +64,15 @@ export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, 
   useEffect(() => setFailed(false), [imageSrc]);
   return (
     <figure>
-      <div
-        className={`${imageSrc && !failed ? "bg-card" : "placeholder"} w-full rounded-xl flex items-center justify-center overflow-hidden border border-rule shadow-card ${className}`}
-        style={aspectRatio ? { aspectRatio } : { height: h }}
-      >
         {imageSrc && !failed ? (
           <img src={imageSrc} alt={label} className="w-full h-full object-cover object-top" onError={() => setFailed(true)} />
         ) : (
           <div className="text-center px-6">
-            <div className="display text-xl md:text-2xl text-ink/70">{label}</div>
             {failed && <div className="eyebrow-sm mt-3 text-muted">Image failed to load</div>}
           </div>
         )}
       </div>
-      {caption && <figcaption className="mt-3 eyebrow-sm">Fig. — {caption}</figcaption>}
+      {caption && <figcaption className="mt-3 eyebrow-sm">{caption}</figcaption>}
     </figure>
   );
 }
