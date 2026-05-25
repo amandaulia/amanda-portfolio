@@ -61,21 +61,6 @@ function AboutHero() {
   );
 }
 
-function PullQuote() {
-  return (
-    <section className="border-b border-rule grad-warm">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
-        <Reveal>
-          <div className="eyebrow text-ochre">Working principle —</div>
-          <p className="display mt-6 text-[34px] md:text-[52px] leading-[1.06] max-w-5xl">
-            I try to do <em className="display-it">the smallest thing that proves the largest claim</em>, and then I scale what survives.
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function ExperienceSection() {
   return (
     <section className="border-b border-rule">
@@ -114,12 +99,12 @@ function ExperienceSection() {
 
 function PublicationsSection() {
   return (
-    <section className="border-b border-rule grad-band">
+    <section className="border-b border-rule" style={{ background: "#e5eaf6" }}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
         <Reveal><SectionHead kicker="Press & Publications" title="Appearances" tone="ochre" /></Reveal>
         <ul className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-rule border border-rule">
           {PUBLICATIONS.map((p: any, i: number) => (
-            <li key={i} className="bg-paper">
+            <li key={i} style={{ background: "#e5eaf6" }}>
               <a href={p.href} target="_blank" rel="noreferrer" className="cs-card block h-full p-7 md:p-8">
                 <Reveal delay={i * 80}>
                   <div className="flex items-start justify-between gap-4">
@@ -319,7 +304,6 @@ function About() {
   return (
     <>
       <AboutHero />
-      <PullQuote />
       <ExperienceSection />
       <PublicationsSection />
       <CommunitySection />

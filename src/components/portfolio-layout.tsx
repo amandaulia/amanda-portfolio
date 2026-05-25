@@ -29,7 +29,6 @@ export function TopNav() {
 
         <nav className="hidden md:flex items-center gap-8">
           <NavItem to="/" exact>Home</NavItem>
-          <NavItem to="/work">Work</NavItem>
           <NavItem to="/about">About</NavItem>
           <a href="mailto:amanda.hanggoro@gmail.com" className="text-[13px] font-medium bg-ink text-paper px-4 py-2 rounded-full hover:bg-teal transition-colors">
             Get In Touch
@@ -45,7 +44,6 @@ export function TopNav() {
         <div className="md:hidden border-t border-rule bg-paper">
           <div className="px-6 py-5 flex flex-col gap-4">
             <NavItem to="/" exact>Home</NavItem>
-            <NavItem to="/work">Work</NavItem>
             <NavItem to="/about">About</NavItem>
             <a href="mailto:amanda.hanggoro@gmail.com" className="text-[13px] font-medium text-teal">
               amanda.hanggoro@gmail.com
@@ -79,7 +77,6 @@ export function Footer() {
             <div className="eyebrow-sm">Index</div>
             <ul className="mt-4 space-y-2 text-[15px]">
               <li><Link className="ulink" to="/">Home</Link></li>
-              <li><Link className="ulink" to="/work">All work</Link></li>
               <li><Link className="ulink" to="/about">About &amp; contact</Link></li>
             </ul>
           </div>

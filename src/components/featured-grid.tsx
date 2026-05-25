@@ -67,18 +67,10 @@ export function FeaturedSpotlight() {
 
 export function FeaturedGrid() {
   const heros = CASE_STUDIES.filter((c) => c.kind === "hero");
-  const snaps = CASE_STUDIES.filter((c) => c.kind === "snapshot");
-  const tints = [
-    "linear-gradient(135deg, #FFF8F6 0%, #FDE6E4 100%)",
-    "linear-gradient(135deg, #FFF8F6 0%, #E0E7F4 100%)",
-    "linear-gradient(135deg, #FFF8F6 0%, #ECE0EC 100%)",
-    "linear-gradient(135deg, #FFF8F6 0%, #F5DDE7 100%)",
-  ];
-  const leads = ["rose", "serenity", "lavender", "rose"];
 
   return (
     <section className="border-t border-rule">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-20 md:pt-24 pb-10">
+      <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-20 md:pt-24 pb-20 md:pb-24">
         <div className="flex items-end justify-between flex-wrap gap-6">
           <SectionHead kicker="2019 — 2026" title="Case Studies" />
         </div>
@@ -107,28 +99,6 @@ export function FeaturedGrid() {
             </li>
           ))}
         </ul>
-
-        <div className="mt-24">
-          <SectionHead kicker="Selected Work" title="Snapshots" tone="ochre" />
-          <ul className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-px bg-rule border border-rule">
-            {snaps.map((c, i) => (
-              <li key={c.slug} style={{ background: tints[i % tints.length] }}>
-                <Link to="/work/$slug" params={{ slug: c.slug }} className="cs-card block h-full p-7 md:p-9">
-                  <Reveal>
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="eyebrow-sm">{c.number}</div>
-                      <span className="arr text-[16px]">↗</span>
-                    </div>
-                    <div className="mt-7 eyebrow-sm text-teal">{c.company}</div>
-                    <h3 className="display text-[26px] md:text-[32px] leading-[1.05] mt-2 text-ink">{c.title}</h3>
-                    <p className="mt-4 text-[15.5px] text-ink/80 leading-[1.55]">{c.hook}</p>
-                    <div className="mt-5"><TagRow tags={c.tags} lead={leads[i % leads.length]} /></div>
-                  </Reveal>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );

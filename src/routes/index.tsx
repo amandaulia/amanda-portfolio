@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal, Chip } from "../components/portfolio-ui";
 import { FeaturedSpotlight, FeaturedGrid } from "../components/featured-grid";
 
@@ -43,16 +43,8 @@ function Hero() {
                 Product Manager with <span className="text-ink font-medium">5+ years</span> shipping consumer, AI/ML, healthtech, and social-impact products across <span className="text-ink font-medium">SEA, MENA, and the US</span>.
               </p>
               <p className="mt-4 text-[17px] leading-[1.6] text-muted max-w-xl">
-                This is a record of past work including eight case studies in full. I also build independently, check it at <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">github.com/amandaulia</a>.
+                This is a record of past work including seven case studies in full. I also build independently, check it at <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">github.com/amandaulia</a>.
               </p>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <Link to="/work" className="text-[14px] font-medium bg-ink text-paper px-5 py-3 rounded-full hover:bg-teal transition-colors">
-                  See the work →
-                </Link>
-              </div>
             </Reveal>
 
             <Reveal delay={260}>
