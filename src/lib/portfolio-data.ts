@@ -7,8 +7,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "01",
     kind: "hero",
     company: "Elysium Mentalcare",
-    title: "Comprehensive Mental Health Directory Built Independently",
-    hook: "Independently build a mental health directory that 10 million people access from MVP to full launched website.",
+    title: "Building Comprehensive Mental Health Directory",
+    hook: "Independently develop a mental health directory that 10 million people access from MVP to full launched website.",
     role: "Founder & Product Builder",
     period: "2019 — present",
     geo: "Indonesia",
@@ -52,18 +52,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       "A single, searchable directory that is built, designed, schema'd, and edited by one person. A website that organizes the question the way the user actually asks it, with an AI pipeline behind it that lets a one-person operation keep ten million people's resource list fresh.",
     placeholders: [
       {
-        label: "Live App",
-        h: 280,
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Live%20App.png",
       },
       {
-        label: "MVP Carrd",
-        h: 280,
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/MVP%20Carrd.png",
       },
       {
-        label: "Filter Mode",
-        h: 280,
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Advanced%20Filtering.png",
       },
       {
@@ -77,7 +71,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     kind: "hero",
     company: "Ruangguru",
     title: "Gamification That Sparks Learning Motivation",
-    hook: "High engagement, low learning. Turning the virtual pet to a gamification feature that actually converts users to learn.",
+    hook: "Turning the virtual pet to a gamification feature that actually encourages and converts users to learn.",
     role: "Associate Product Manager",
     period: "2021 — 2022",
     geo: "Jakarta, Thailand & Vietnam",
@@ -104,9 +98,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution:
       "We rebuilt the mission system around what the learner was actually trying to do that week (exam prep, catch-up, or maintenance) so missions align with study plan. Pet health and evolution became immediate and visible by showing micro interaction for every learning activities and level progression for every mission set completed, replacing the weeks-long evolution.",
     placeholders: [
-      { label: "Before/after — virtual pet UI", caption: "Old idle pet vs. new responsive pet states", h: 360 },
-      { label: "Old vs. new mission list", caption: "Generic 15-min daily vs. learning-journey aligned", h: 280 },
-      { label: "Pet evolution screen", caption: "Stages unlock per session, not per week", h: 320 },
+      {
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Pet%20Hub.png",
+      },
+      {
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Mission%20Hub.png",
+      },
+      {
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Jelajah%20Level.png",
+      },
     ],
   },
   {
