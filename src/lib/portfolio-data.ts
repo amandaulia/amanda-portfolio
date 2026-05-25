@@ -1,6 +1,7 @@
 // @ts-nocheck
 export type CaseStudy = any;
 
+// Add `img`, `image`, `imageUrl`, or `src` to any placeholder item to render an image in its artifact frame.
 export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: "elysium",

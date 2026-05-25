@@ -48,13 +48,7 @@ function ArtifactCarousel({ items }: any) {
         </div>
       </div>
 
-      <div className="placeholder w-full rounded-xl flex items-center justify-center overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
-        <div className="text-center px-6">
-          <div className="eyebrow-sm">[ placeholder ]</div>
-          <div className="display text-xl md:text-2xl mt-2 text-ink/75">{p.label}</div>
-        </div>
-      </div>
-      {p.caption && <div className="mt-4 eyebrow-sm">Fig. — {p.caption}</div>}
+      <Placeholder {...p} aspectRatio="4 / 3" />
       <div className="mt-5 flex gap-1.5">
         {items.map((_: any, i: number) => (
           <button key={i} onClick={() => setIdx(i)} className={`flex-1 h-[3px] rounded-full transition-colors ${i === idx ? "bg-teal" : "bg-rule hover:bg-muted"}`} />

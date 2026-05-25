@@ -58,16 +58,19 @@ export function TagRow({ tags = [], lead = "teal", size = "md" }: any) {
   );
 }
 
-export function Placeholder({ label, caption, h = 320, img }: any) {
+export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, imageUrl, src, className = "" }: any) {
+  const imageSrc = img || image || imageUrl || src;
   return (
     <figure className="reveal">
-      <div className={`${img ? "bg-card" : "placeholder"} w-full rounded-sm flex items-center justify-center overflow-hidden`} style={{ height: h }}>
-        {img ? (
-          <img src={img} alt={label} className="w-full h-full object-cover object-top" />
+      <div
+        className={`${imageSrc ? "bg-card" : "placeholder"} w-full rounded-xl flex items-center justify-center overflow-hidden border border-rule shadow-card ${className}`}
+        style={aspectRatio ? { aspectRatio } : { height: h }}
+      >
+        {imageSrc ? (
+          <img src={imageSrc} alt={label} className="w-full h-full object-cover object-top" />
         ) : (
           <div className="text-center px-6">
-            <div className="eyebrow-sm">[ placeholder ]</div>
-            <div className="display text-2xl md:text-3xl mt-2 text-ink/80">{label}</div>
+            <div className="display text-xl md:text-2xl text-ink/70">{label}</div>
           </div>
         )}
       </div>
