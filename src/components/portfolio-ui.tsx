@@ -61,7 +61,7 @@ export function TagRow({ tags = [], lead = "teal", size = "md" }: any) {
 export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, imageUrl, src, className = "" }: any) {
   const imageSrc = img || image || imageUrl || src;
   return (
-    <figure className="reveal">
+    <figure>
       <div
         className={`${imageSrc ? "bg-card" : "placeholder"} w-full rounded-xl flex items-center justify-center overflow-hidden border border-rule shadow-card ${className}`}
         style={aspectRatio ? { aspectRatio } : { height: h }}
