@@ -3,8 +3,42 @@ export type CaseStudy = any;
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    slug: "ruangguru",
+    slug: "elysium",
     number: "01",
+    kind: "hero",
+    company: "Elysium Mentalcare",
+    title: "Comprehensive Mental Health Directory Built Independently",
+    hook: "Independently build a mental health directory that 10 million people access from MVP to full launched website.",
+    role: "Founder & Product Builder",
+    period: "2019 — present",
+    geo: "Indonesia",
+    category: "Social Impact",
+    tags: ["Social Impact", "Full-Stack", "AI"],
+    metrics: [
+      { value: "10M", label: "website visits" },
+      { value: "2K", label: "organic shares" },
+      { value: "25", label: "partner organizations" },
+    ],
+    timeline: [
+      { year: "2019", title: "Mental Wellness Movie Club", body: "Founded a community before there was a product with a team of 7. 2,500 participants gathered around pop culture media to discuss about mental health awareness, education, and access." },
+      { year: "2020", title: "mentalhealthid.carrd.co", body: "Launched a one-page site during the pandemic. Organic traffic and unsolicited shares confirmed that there is a real demand for a mental health directory people could navigate themselves." },
+      { year: "2024", title: "User research, post-MBA", body: "Team members left after a hiatus so an independent user research was conducted. Key insight found people still need a comprehensive directory and no one has served it in a way that is easy to navigate." },
+      { year: "2025", title: "mentalhealthid.lovable.app", body: "Rebuilt from scratch. Designed and implemented the full Supabase schema. Structured searchable directory across 5 entity types (institutions, practitioners, organizations, peer counseling, support groups) with contact, location, session mode, services, pricing, specialization, insurance, and profession type." },
+      { year: "2026", title: "AI data pipeline", body: "Built an ingestion pipeline so a link, file, or screenshot can be dropped and Claude/Codex extracts, categorizes, deduplicates, and structures the data before final reviews and auto-inserts into Supabase. Marketing materials built with Claude Design + Figma." },
+    ],
+    problem:
+      "Indonesia has a mental health access problem that does not look like a software problem until you sit with it. Existing resources were fragmented, paywalled, or organized by what providers wanted to advertise rather than what users were trying to decide.",
+    solution:
+      "A single, searchable directory that is built, designed, schema'd, and edited by one person. A website that organizes the question the way the user actually asks it, with an AI pipeline behind it that lets a one-person operation keep ten million people's resource list fresh.",
+    placeholders: [
+      { label: "Directory home", caption: "Search-first experience across 5 entity types", h: 320 },
+      { label: "Provider profile", caption: "Structured: contact, mode, pricing, insurance, specialty", h: 280 },
+      { label: "AI ingestion pipeline", caption: "Drop a link/file/screenshot → structured Supabase row", h: 280 },
+    ],
+  },
+  {
+    slug: "ruangguru",
+    number: "02",
     kind: "hero",
     company: "Ruangguru",
     title: "Gamification That Sparks Learning Motivation",
@@ -39,7 +73,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "knowtex",
-    number: "02",
+    number: "03",
     kind: "hero",
     company: "Knowtex",
     title: "Making AI Work for Clinicians",
@@ -71,105 +105,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
-    slug: "returnkey",
-    number: "03",
-    kind: "hero",
-    company: "ReturnKey",
-    title: "Product Metadata Enrichment with a Single Scan",
-    hook: "Previously even manual sorting through 3 stations gives us little to learn and work with. Now one scan lets us know everything about the product.",
-    role: "Product Manager",
-    period: "Aug 2024 — Sep 2025",
-    geo: "Jakarta, ID & Nashville, USA (Remote)",
-    category: "Enterprise · AI/ML",
-    tags: ["Enterprise", "AI/ML", "Operations"],
-    metrics: [
-      { value: "−40%", label: "processing cost" },
-      { value: "+10%", label: "net margin" },
-    ],
-    problem:
-      "Returned and overstock inventory moved through two or three manual sorting stations before it could be re-listed. Even through the steps, we still know very little about the product to make meaningful commercial decision. Moreover, the process is expensive and especially tricky with items that are unlabeled, have obscure barcodes, near-identical variants, and mismatched information between manifest and real items.",
-    process: [
-      { t: "Enrichment pipeline", d: "Co-designed lexical + semantic analysis, web scrapers, and LLM enrichment with CTO and VP of Data." },
-      { t: "Single-scan and print workflow", d: "Single-scan triggers a whole enrichment system that lets processor only need to label the product with the barcode the machine printed." },
-      { t: "Pricing experimentation", d: "Built a system for markdowns, switchback tests, and A/B pricing experiments of the products based on the information we learn." },
-    ],
-    solution:
-      "One station, one operator: scan an item, the LLM recognizes and categorizes it, the workflow logs and prints. Pricing experiments run continuously underneath so the floor never stops learning what the inventory is worth.",
-    placeholders: [
-      { label: "System architecture diagram", caption: "Enrichment pipeline + experiment harness", h: 320 },
-      { label: "Before/after workflow", caption: "3-station manual → single-station assisted", h: 260 },
-      { label: "Barcode scan UI", caption: "Operator surface — scan, identify, confirm", h: 280 },
-    ],
-  },
-  {
-    slug: "elysium",
-    number: "04",
-    kind: "hero",
-    company: "Elysium Mentalcare",
-    title: "Comprehensive Mental Health Directory Built Independently",
-    hook: "Independently build a mental health directory that 10 million people access from MVP to full launched website.",
-    role: "Founder & Product Builder",
-    period: "2019 — present",
-    geo: "Indonesia",
-    category: "Social Impact",
-    tags: ["Social Impact", "Full-Stack", "AI"],
-    metrics: [
-      { value: "10M", label: "website visits" },
-      { value: "2K", label: "organic shares" },
-      { value: "25", label: "partner organizations" },
-    ],
-    timeline: [
-      { year: "2019", title: "Mental Wellness Movie Club", body: "Founded a community before there was a product with a team of 7. 2,500 participants gathered around pop culture media to discuss about mental health awareness, education, and access." },
-      { year: "2020", title: "mentalhealthid.carrd.co", body: "Launched a one-page site during the pandemic. Organic traffic and unsolicited shares confirmed that there is a real demand for a mental health directory people could navigate themselves." },
-      { year: "2024", title: "User research, post-MBA", body: "Team members left after a hiatus so an independent user research was conducted. Key insight found people still need a comprehensive directory and no one has served it in a way that is easy to navigate." },
-      { year: "2025", title: "mentalhealthid.lovable.app", body: "Rebuilt from scratch. Designed and implemented the full Supabase schema. Structured searchable directory across 5 entity types (institutions, practitioners, organizations, peer counseling, support groups) with contact, location, session mode, services, pricing, specialization, insurance, and profession type." },
-      { year: "2026", title: "AI data pipeline", body: "Built an ingestion pipeline so a link, file, or screenshot can be dropped and Claude/Codex extracts, categorizes, deduplicates, and structures the data before final reviews and auto-inserts into Supabase. Marketing materials built with Claude Design + Figma." },
-    ],
-    problem:
-      "Indonesia has a mental health access problem that does not look like a software problem until you sit with it. Existing resources were fragmented, paywalled, or organized by what providers wanted to advertise rather than what users were trying to decide.",
-    solution:
-      "A single, searchable directory that is built, designed, schema'd, and edited by one person. A website that organizes the question the way the user actually asks it, with an AI pipeline behind it that lets a one-person operation keep ten million people's resource list fresh.",
-    placeholders: [
-      { label: "Directory home", caption: "Search-first experience across 5 entity types", h: 320 },
-      { label: "Provider profile", caption: "Structured: contact, mode, pricing, insurance, specialty", h: 280 },
-      { label: "AI ingestion pipeline", caption: "Drop a link/file/screenshot → structured Supabase row", h: 280 },
-    ],
-  },
-  {
-    slug: "undp",
-    number: "05",
-    kind: "hero",
-    company: "UNDP",
-    title: "Digitalizing M&E Tools for Indigenous Peoples & Local Communities Projects",
-    hook: "Optimizing monitoring and evaluation for 174 projects and 36 countries from Excel sheet to offline-enabled digital tool.",
-    role: "Junior Digital Solutions & M&E Officer",
-    period: "Feb 2025 — Jul 2025",
-    geo: "Remote",
-    category: "Social Impact",
-    tags: ["Social Impact", "Digitalization"],
-    metrics: [
-      { value: "174", label: "innovative projects across 16 countries" },
-      { value: "Days", label: "saved per data collection cycle" },
-      { value: "4", label: "continents with improved reporting accuracy" },
-    ],
-    problem:
-      "Country offices, National Catalytic Organizations, and grantees across Asia, Africa, Latin America, and the Caribbean were tracking project performance using Excel sheets with no built-in data validation. No standardized input meant every data collection cycle required back-and-forth with national coordinators to manually clean and validate entries, a process that took days and introduced errors.",
-    process: [
-      { t: "Problem Analysis", d: "Analyzed the existing Excel-based workflow to identify where validation broke down." },
-      { t: "Form & Tools Building", d: "Designed a replacement: a simple form with advanced data validation logic, built to work offline for field access." },
-      { t: "Documentation & Training", d: "Wrote detailed step-by-step documentation and ran remote training sessions for country office staff across all activation countries." },
-    ],
-    solution:
-      "A field-accessible, offline-capable digital form with built-in data validation that standardized inputs at the point of entry, eliminating the need for post-collection correction cycles. Adopted by national coordinators, NGOs, and grantees without requiring technical expertise.",
-    placeholders: [
-      { label: "Offline-capable M&E form", caption: "Field-accessible data collection with built-in validation", h: 320 },
-      { label: "Training documentation", caption: "Step-by-step guidance for country office staff", h: 280 },
-      { label: "Regional reporting workflow", caption: "Standardized inputs across distributed activation countries", h: 280 },
-    ],
-  },
-  {
     slug: "ibm",
-    number: "06",
+    number: "04",
     kind: "hero",
     company: "IBM",
     title: "Streamlining Stock Research with Generative AI",
@@ -203,7 +140,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: "flip",
-    number: "07",
+    number: "05",
     kind: "hero",
     company: "Flip",
     title: "Accelerating Financial Account Verification for Business Clients",
@@ -230,6 +167,69 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "Digital KYC/KYB flow", caption: "Document verification moved from manual review to automated pipeline", h: 320 },
       { label: "Digital contract signing", caption: "Replacing physical signatures with faster business activation", h: 280 },
       { label: "Activation journey", caption: "From sign-up to feature-ready in under 24 hours", h: 280 },
+    ],
+  },
+  {
+    slug: "returnkey",
+    number: "06",
+    kind: "hero",
+    company: "ReturnKey",
+    title: "Product Metadata Enrichment with a Single Scan",
+    hook: "Previously even manual sorting through 3 stations gives us little to learn and work with. Now one scan lets us know everything about the product.",
+    role: "Product Manager",
+    period: "Aug 2024 — Sep 2025",
+    geo: "Jakarta, ID & Nashville, USA (Remote)",
+    category: "Enterprise · AI/ML",
+    tags: ["Enterprise", "AI/ML", "Operations"],
+    metrics: [
+      { value: "−40%", label: "processing cost" },
+      { value: "+10%", label: "net margin" },
+    ],
+    problem:
+      "Returned and overstock inventory moved through two or three manual sorting stations before it could be re-listed. Even through the steps, we still know very little about the product to make meaningful commercial decision. Moreover, the process is expensive and especially tricky with items that are unlabeled, have obscure barcodes, near-identical variants, and mismatched information between manifest and real items.",
+    process: [
+      { t: "Enrichment pipeline", d: "Co-designed lexical + semantic analysis, web scrapers, and LLM enrichment with CTO and VP of Data." },
+      { t: "Single-scan and print workflow", d: "Single-scan triggers a whole enrichment system that lets processor only need to label the product with the barcode the machine printed." },
+      { t: "Pricing experimentation", d: "Built a system for markdowns, switchback tests, and A/B pricing experiments of the products based on the information we learn." },
+    ],
+    solution:
+      "One station, one operator: scan an item, the LLM recognizes and categorizes it, the workflow logs and prints. Pricing experiments run continuously underneath so the floor never stops learning what the inventory is worth.",
+    placeholders: [
+      { label: "System architecture diagram", caption: "Enrichment pipeline + experiment harness", h: 320 },
+      { label: "Before/after workflow", caption: "3-station manual → single-station assisted", h: 260 },
+      { label: "Barcode scan UI", caption: "Operator surface — scan, identify, confirm", h: 280 },
+    ],
+  },
+  {
+    slug: "undp",
+    number: "07",
+    kind: "hero",
+    company: "UNDP",
+    title: "Digitalizing M&E Tools for Indigenous Peoples & Local Communities Projects",
+    hook: "Optimizing monitoring and evaluation for 174 projects and 36 countries from Excel sheet to offline-enabled digital tool.",
+    role: "Junior Digital Solutions & M&E Officer",
+    period: "Feb 2025 — Jul 2025",
+    geo: "Remote",
+    category: "Social Impact",
+    tags: ["Social Impact", "Digitalization"],
+    metrics: [
+      { value: "174", label: "innovative projects across 16 countries" },
+      { value: "Days", label: "saved per data collection cycle" },
+      { value: "4", label: "continents with improved reporting accuracy" },
+    ],
+    problem:
+      "Country offices, National Catalytic Organizations, and grantees across Asia, Africa, Latin America, and the Caribbean were tracking project performance using Excel sheets with no built-in data validation. No standardized input meant every data collection cycle required back-and-forth with national coordinators to manually clean and validate entries, a process that took days and introduced errors.",
+    process: [
+      { t: "Problem Analysis", d: "Analyzed the existing Excel-based workflow to identify where validation broke down." },
+      { t: "Form & Tools Building", d: "Designed a replacement: a simple form with advanced data validation logic, built to work offline for field access." },
+      { t: "Documentation & Training", d: "Wrote detailed step-by-step documentation and ran remote training sessions for country office staff across all activation countries." },
+    ],
+    solution:
+      "A field-accessible, offline-capable digital form with built-in data validation that standardized inputs at the point of entry, eliminating the need for post-collection correction cycles. Adopted by national coordinators, NGOs, and grantees without requiring technical expertise.",
+    placeholders: [
+      { label: "Offline-capable M&E form", caption: "Field-accessible data collection with built-in validation", h: 320 },
+      { label: "Training documentation", caption: "Step-by-step guidance for country office staff", h: 280 },
+      { label: "Regional reporting workflow", caption: "Standardized inputs across distributed activation countries", h: 280 },
     ],
   },
 ];
