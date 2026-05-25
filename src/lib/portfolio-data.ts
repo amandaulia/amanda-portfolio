@@ -67,8 +67,6 @@ export const CASE_STUDIES: CaseStudy[] = [
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Advanced%20Filtering.png",
       },
       {
-        label: "Detail Page",
-        h: 280,
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Detail%20Page.png",
       },
     ],
