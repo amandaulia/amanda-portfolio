@@ -151,12 +151,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Self-serve onboarding that moves along with the pace of the clinicians, paired with specialty-aware customization. Combined with EHR integration and coding/billing automation, the product crossed from 'requires a human to install' to 'installs itself.'",
     placeholders: [
       {
-        caption: "Onboarding flow design",
-        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Onboarding%20Flow.png",
-      },
-      {
         caption: "Specialty-specific notes and coding customization",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Customization.png",
+      },
+      {
+        caption: "Onboarding flow design",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Onboarding%20Flow.png",
       },
       {
         caption: "Integrated with the organization's EHR/EMR",
@@ -261,11 +261,11 @@ export const CASE_STUDIES: CaseStudy[] = [
     placeholders: [
       {
         caption: "Streamlined registration requirements",
-        img: "",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Registration%20Homepage.png",
       },
       {
         caption: "New KYC/KYB automated final step",
-        img: "",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Agreement%20Signing.png",
       },
     ],
   },
@@ -305,12 +305,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       "One station, one operator: scan an item, the LLM recognizes and categorizes it, the workflow logs and prints. Pricing experiments run continuously underneath so the floor never stops learning what the inventory is worth.",
     placeholders: [
       {
-        caption: "Categorization and pricing logic",
-        img: "",
+        caption: "Single scan enrichment, categorization, and pricing",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Enrichment.png",
       },
       {
-        caption: "Single scan enrichment flow",
-        img: "",
+        caption: "Color price discount checker",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Color%20Price.png",
       },
     ],
   },
@@ -351,12 +351,12 @@ export const CASE_STUDIES: CaseStudy[] = [
       "A field-accessible, offline-capable digital form with built-in data validation that standardized inputs at the point of entry, eliminating the need for post-collection correction cycles. Adopted by national coordinators, NGOs, and grantees without requiring technical expertise.",
     placeholders: [
       {
-        caption: "Old M&E tool using Excel sheet",
-        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Old%20PMT.png",
-      },
-      {
         caption: "New online/offline form with advanced feature and logic",
         img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/New%20Jotform.png",
+      },
+      {
+        caption: "Old M&E tool using Excel sheet",
+        img: "https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Old%20PMT.png",
       },
     ],
   },
