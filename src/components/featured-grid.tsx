@@ -37,7 +37,7 @@ export function FeaturedSpotlight() {
 
       <Link to="/work/$slug" params={{ slug: c.slug }} className="block group">
         <div className="relative">
-          <Placeholder {...(c.placeholders?.[1] ?? {})} aspectRatio="4 / 3" className="w-full rounded-xl" />
+          <Placeholder {...(c.placeholders?.[0] ?? {})} aspectRatio="4 / 3" className="w-full rounded-xl" />
           <div className="absolute top-4 left-4"><Chip variant="ink">{c.category}</Chip></div>
           <div className="absolute bottom-4 right-4 eyebrow-sm" style={{ background: "rgb(26,31,46)", color: "#FFF8F6", padding: "6px 10px", borderRadius: 9999 }}>
             {c.period}
