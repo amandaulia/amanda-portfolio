@@ -274,7 +274,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "06",
     kind: "hero",
     company: "ReturnKey",
-    title: "Product Metadata Enrichment with a Single Scan",
+    title: "Enriching Product Metadata & Pricing Strategy with a Single Scan",
     hook: "Manual sorting through 3 stations gives us little to learn and work with. Now one scan of the product lets us know enough to make smart commercial decision.",
     role: "Product Manager",
     period: "Aug 2024 — Sep 2025",
