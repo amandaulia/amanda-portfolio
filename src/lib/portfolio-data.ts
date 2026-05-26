@@ -27,30 +27,22 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         year: "2020",
-        title: (
-          <a href="https://mentalhealthid.carrd.co" target="_blank" rel="noreferrer" className="ulink text-ink">
-            mentalhealthid.carrd.co
-          </a>
-        ),
+        title: "mentalhealthid.carrd.co",
         body: "Launched a one-page site during the pandemic. Organic traffic and unsolicited shares confirmed that there is a real demand for a mental health directory people could navigate themselves.",
       },
       {
         year: "2024",
-        title: "User Research",
+        title: "User research, post-MBA",
         body: "Team members left after a hiatus so an independent user research was conducted. Key insight found people still need a comprehensive directory and no one has served it in a way that is easy to navigate.",
       },
       {
         year: "2025",
-        title: (
-          <a href="https://mentalhealthid.lovable.app" target="_blank" rel="noreferrer" className="ulink text-ink">
-            mentalhealthid.lovable.app
-          </a>
-        ),
+        title: "mentalhealthid.lovable.app",
         body: "Rebuilt from scratch. Designed and implemented the full Supabase schema. Structured searchable directory across 5 entity types (institutions, practitioners, organizations, peer counseling, support groups) with contact, location, session mode, services, pricing, specialization, insurance, and profession type.",
       },
       {
         year: "2026",
-        title: "AI Data Pipeline",
+        title: "AI data pipeline",
         body: "Built an ingestion pipeline so a link, file, or screenshot can be dropped and Claude/Codex extracts, categorizes, deduplicates, and structures the data before final reviews and auto-inserts into Supabase. Marketing materials built with Claude Design + Figma.",
       },
     ],
