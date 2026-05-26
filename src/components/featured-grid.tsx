@@ -2,7 +2,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { CASE_STUDIES } from "../lib/portfolio-data";
-import { Reveal, Chip, TagRow, SectionHead } from "./portfolio-ui";
+import { Reveal, Chip, TagRow, SectionHead, Placeholder } from "./portfolio-ui";
 
 export function FeaturedSpotlight() {
   const heros = CASE_STUDIES.filter((c) => c.kind === "hero");
@@ -36,11 +36,8 @@ export function FeaturedSpotlight() {
       </div>
 
       <Link to="/work/$slug" params={{ slug: c.slug }} className="block group">
-        <div className="placeholder w-full rounded-xl flex items-center justify-center relative overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
-          <div className="text-center px-6">
-            <div className="eyebrow-sm">[ app screenshot ]</div>
-            <div className="display text-2xl md:text-3xl mt-2 text-ink/75">{c.company}</div>
-          </div>
+        <div className="relative">
+          <Placeholder {...(c.placeholders?.[0] ?? {})} aspectRatio="4 / 3" className="w-full rounded-xl" />
           <div className="absolute top-4 left-4"><Chip variant="ink">{c.category}</Chip></div>
           <div className="absolute bottom-4 right-4 eyebrow-sm" style={{ background: "rgb(26,31,46)", color: "#FFF8F6", padding: "6px 10px", borderRadius: 9999 }}>
             {c.period}
