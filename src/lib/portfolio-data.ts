@@ -27,7 +27,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         year: "2020",
-        title: {" "}(
+        title: (
           <a href="https://mentalhealthid.carrd.co" target="_blank" rel="noreferrer" className="ulink text-ink">
             mentalhealthid.carrd.co
           </a>
@@ -41,7 +41,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         year: "2025",
-        title: {" "}(
+        title: (
           <a href="https://mentalhealthid.lovable.app" target="_blank" rel="noreferrer" className="ulink text-ink">
             mentalhealthid.lovable.app
           </a>
