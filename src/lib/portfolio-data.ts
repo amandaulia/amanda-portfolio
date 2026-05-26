@@ -319,7 +319,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     number: "07",
     kind: "hero",
     company: "UNDP",
-    title: "Digitalizing M&E Tools for Indigenous Peoples & Local Communities Projects",
+    title: "Digitalizing M&E Tools for Indigenous People & Local Communities Projects",
     hook: "Optimizing monitoring and evaluation for 174 projects and 36 countries from Excel sheet to offline-enabled digital tool.",
     role: "Junior Digital Solutions & M&E Officer",
     period: "Feb 2025 — Jul 2025",
