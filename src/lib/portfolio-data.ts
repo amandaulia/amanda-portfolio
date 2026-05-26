@@ -8,7 +8,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     kind: "hero",
     company: "Elysium Mentalcare",
     title: "Developing Comprehensive Mental Health Directory",
-    hook: "Independently build a mental health directory that 10 million people access from MVP to full launched website.",
+    hook: "Independently build a mental health directory at 
+      <a href="https://mentalhealthid.lovable.app" target="_blank" rel="noreferrer" className="ulink text-ink">mentalhealthid.lovable.app</a> 
+      that 10 million people access from MVP to full launched website.",
     role: "Founder & Product Builder",
     period: "2019 — present",
     geo: "Indonesia",
@@ -27,7 +29,8 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         year: "2020",
-        title: "mentalhealthid.carrd.co",
+        title: "
+                <a href="https://mentalhealthid.carrd.co" target="_blank" rel="noreferrer" className="ulink text-ink">mentalhealthid.carrd.co</a>",
         body: "Launched a one-page site during the pandemic. Organic traffic and unsolicited shares confirmed that there is a real demand for a mental health directory people could navigate themselves.",
       },
       {
@@ -37,7 +40,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       },
       {
         year: "2025",
-        title: "mentalhealthid.lovable.app",
+        title: "      
+          <a href="https://mentalhealthid.lovable.app" target="_blank" rel="noreferrer" className="ulink text-ink">mentalhealthid.lovable.app</a>
+          ",
         body: "Rebuilt from scratch. Designed and implemented the full Supabase schema. Structured searchable directory across 5 entity types (institutions, practitioners, organizations, peer counseling, support groups) with contact, location, session mode, services, pricing, specialization, insurance, and profession type.",
       },
       {
