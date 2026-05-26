@@ -72,14 +72,13 @@ function AboutHero() {
           </div>
           <div className="md:col-span-5">
             <Reveal delay={120}>
-              <div
-                className="placeholder w-full overflow-hidden rounded-md shadow-warm border border-rule flex items-center justify-center"
-                style={{ aspectRatio: "4 / 5" }}
-              >
-                <div className="text-center px-6">
-                  <div className="eyebrow-sm">[ portrait ]</div>
-                  <div className="display text-2xl md:text-3xl mt-2 text-ink/75">Amanda Hanggoro</div>
-                </div>
+              <div className="w-full overflow-hidden rounded-md shadow-warm border border-rule">
+                <img
+                  src="https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Profile%20Picture.JPG"
+                  alt="Amanda Hanggoro portrait"
+                  className="w-full h-full object-cover"
+                  style={{ aspectRatio: "4 / 5" }}
+                />
               </div>
             </Reveal>
           </div>
