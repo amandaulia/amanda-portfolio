@@ -267,6 +267,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         caption: "New KYC/KYB automated final step",
         img: "",
       },
+    ],
   },
   {
     slug: "returnkey",
