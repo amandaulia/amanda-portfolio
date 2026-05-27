@@ -135,7 +135,7 @@ function SectionShortcuts() {
     >
       <nav
         aria-label="About page sections"
-        className="pointer-events-auto flex flex-col items-end gap-2 rounded-full border border-rule p-2 shadow-lift backdrop-blur transition-all"
+        className="pointer-events-auto flex flex-col items-end gap-2 rounded-[28px] border border-rule p-2 shadow-lift backdrop-blur transition-all"
         style={{
           background:
             "linear-gradient(90deg, rgba(198,186,224,0.76) 0%, rgba(238,207,222,0.76) 50%, rgba(198,186,224,0.76) 100%)",
