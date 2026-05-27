@@ -65,7 +65,7 @@ export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, 
   return (
     <figure>
       <div
-        className={`${imageSrc && !failed ? "bg-card" : "placeholder"} w-full rounded-xl flex items-center justify-center overflow-hidden border border-rule shadow-card ${className}`}
+        className={`${imageSrc && !failed ? "bg-white" : "placeholder"} w-full rounded-xl flex items-center justify-center overflow-hidden border border-rule shadow-card ${className}`}
         style={aspectRatio ? { aspectRatio } : { height: h }}
       >
         {imageSrc && !failed ? (
