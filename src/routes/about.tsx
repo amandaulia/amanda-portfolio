@@ -49,34 +49,36 @@ function AboutHero() {
         </Reveal>
         <Reveal delay={80}>
           <div className="flex items-center gap-8 mt-7">
-            <h1 className="display text-[48px] md:text-[80px] leading-[0.96] tracking-[-0.04em]">
-              Amanda
-              <br />
-              <span className="display-it grad-text">Hanggoro</span>
-            </h1>
-            <div className="flex-shrink-0 self-center">
+            {/* Circular photo on the left */}
+            <div className="flex-shrink-0">
               <img
                 src="https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Headshot.jpeg"
                 alt="Amanda Hanggoro"
                 className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full object-cover object-top shadow-warm border-2 border-rule"
               />
             </div>
+            {/* Name + description aligned to the right of the photo */}
+            <div className="flex-1 min-w-0">
+              <h1 className="display text-[48px] md:text-[80px] leading-[0.96] tracking-[-0.04em]">
+                Amanda
+                <br />
+                <span className="display-it grad-text">Hanggoro</span>
+              </h1>
+              <p className="mt-8 text-[19px] md:text-[20px] leading-[1.6] text-ink/85">
+                Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
+                private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving
+                conversion, retention, and operational efficiency across{" "}
+                <span className="text-ink font-medium">Southeast Asia, MENA, and the United States.</span>
+              </p>
+              <p className="mt-5 text-[17px] leading-[1.6] text-muted">
+                I also build databases, automations, and full-stack applications independently, check it at{" "}
+                <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">
+                  github.com/amandaulia
+                </a>
+                .
+              </p>
+            </div>
           </div>
-        </Reveal>
-        <Reveal delay={140}>
-          <p className="mt-8 text-[19px] md:text-[20px] leading-[1.6] text-ink/85 max-w-3xl">
-            Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
-            private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving
-            conversion, retention, and operational efficiency across{" "}
-            <span className="text-ink font-medium">Southeast Asia, MENA, and the United States.</span>
-          </p>
-          <p className="mt-5 text-[17px] leading-[1.6] text-muted max-w-3xl">
-            I also build databases, automations, and full-stack applications independently, check it at{" "}
-            <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">
-              github.com/amandaulia
-            </a>
-            .
-          </p>
         </Reveal>
       </div>
     </section>
