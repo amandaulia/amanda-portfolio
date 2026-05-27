@@ -9,7 +9,9 @@ export function FeaturedSpotlight() {
   const heros = CASE_STUDIES.filter((c) => c.kind === "hero");
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const c = heros[idx];
+  const heroSlides = heros.map((h) => ({ src: h.placeholders?.[0]?.img || h.placeholders?.[0]?.image || h.placeholders?.[0]?.imageUrl || h.placeholders?.[0]?.src })).filter((s) => s.src);
 
   useEffect(() => {
     if (paused) return;
