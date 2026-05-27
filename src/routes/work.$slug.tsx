@@ -3,6 +3,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { CASE_STUDIES, CS_BY_SLUG } from "../lib/portfolio-data";
 import { Reveal, TagRow, SectionHead, Placeholder } from "../components/portfolio-ui";
+import { ImageLightbox } from "../components/lightbox";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
