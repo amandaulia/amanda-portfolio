@@ -48,7 +48,7 @@ function AboutHero() {
           </div>
         </Reveal>
         <Reveal delay={80}>
-          <div className="flex items-center gap-8 mt-7">
+          <div className="flex items-start gap-8 mt-7">
             {/* Circular photo on the left */}
             <div className="flex-shrink-0">
               <img
