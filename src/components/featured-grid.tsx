@@ -43,9 +43,10 @@ export function FeaturedSpotlight() {
           type="button"
           onClick={() => setLightboxOpen(true)}
           aria-label="Open image"
-          className="relative block w-full cursor-zoom-in"
+          className="relative block w-full cursor-zoom-in rounded-xl"
+          style={{ backgroundColor: "#ffffff", color: "#7B7E94" }}
         >
-          <Placeholder {...(c.placeholders?.[0] ?? {})} aspectRatio="4 / 3" className="w-full rounded-xl" />
+          <Placeholder {...(c.placeholders?.[0] ?? {})} caption={undefined} aspectRatio="4 / 3" className="w-full rounded-xl" />
           <div className="absolute top-4 left-4"><Chip variant="ink">{c.category}</Chip></div>
         </button>
 
@@ -67,11 +68,6 @@ export function FeaturedSpotlight() {
       />
 
 
-      <div className="mt-6 flex gap-1.5">
-        {heros.map((h, i) => (
-          <button key={h.slug} onClick={() => setIdx(i)} aria-label={`Show ${h.company}`} className={`flex-1 h-[3px] rounded-full transition-colors ${i === idx ? "bg-teal" : "bg-rule hover:bg-muted"}`} />
-        ))}
-      </div>
     </div>
   );
 }

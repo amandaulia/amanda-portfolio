@@ -77,7 +77,7 @@ export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, 
           </div>
         )}
       </div>
-      {caption && <figcaption className="mt-3 eyebrow-sm">Fig. — {caption}</figcaption>}
+      {caption && <figcaption className="mt-3 eyebrow-sm">{caption}</figcaption>}
     </figure>
   );
 }

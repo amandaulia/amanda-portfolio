@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { Link, useRouterState } from "@tanstack/react-router";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 function NavItem({ to, children, exact = false }: any) {
@@ -39,11 +40,14 @@ export function TopNav() {
         </nav>
 
         <button
-          className="md:hidden text-[13px] font-medium"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center text-ink"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          style={{ backgroundColor: "transparent", color: "#1A1F2E" }}
         >
-          {open ? "Close" : "Menu"}
+          {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
         </button>
       </div>
 

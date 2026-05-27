@@ -1,5 +1,7 @@
 // @ts-nocheck
 import { createFileRoute } from "@tanstack/react-router";
+import { BriefcaseBusiness, Newspaper, Sparkles, Trophy, Users } from "lucide-react";
+import { useEffect, useState } from "react";
 import { SKILLS, EXPERIENCE, PUBLICATIONS, MENTORING, COMMUNITY, ACHIEVEMENTS } from "../lib/portfolio-data";
 import { Reveal, Chip, SectionHead } from "../components/portfolio-ui";
 
@@ -21,7 +23,7 @@ export const Route = createFileRoute("/about")({
 
 function AboutHero() {
   return (
-    <section className="relative border-b border-rule overflow-hidden grad-hero">
+    <section className="relative border-b border-rule overflow-hidden grad-hero" id="about">
       <div
         className="pointer-events-none absolute -top-40 -right-32 w-[600px] h-[600px] rounded-full opacity-35"
         style={{
@@ -88,9 +90,103 @@ function AboutHero() {
   );
 }
 
+function SectionShortcuts() {
+  const links = [
+    { id: "experience", href: "#experience", label: "Experience", Icon: BriefcaseBusiness },
+    { id: "achievements", href: "#achievements", label: "Achievements", Icon: Trophy },
+    { id: "press-publications", href: "#press-publications", label: "Press & Publications", Icon: Newspaper },
+    { id: "mentoring-community", href: "#mentoring-community", label: "Mentoring & Community", Icon: Users },
+    { id: "toolkit", href: "#toolkit", label: "Toolkit", Icon: Sparkles },
+  ];
+  const [activeId, setActiveId] = useState("experience");
+  const [expanded, setExpanded] = useState(false);
+  const activeLink = links.find((link) => link.id === activeId) ?? links[0];
+
+  useEffect(() => {
+    const getSections = () => links.map((link) => document.getElementById(link.id)).filter(Boolean);
+    const updateActiveFromScroll = () => {
+      const anchorY = window.scrollY + window.innerHeight * 0.45;
+      const sections = getSections();
+      const passed = sections.filter((section) => section.offsetTop <= anchorY);
+      const current = passed[passed.length - 1] ?? sections[0];
+      if (current?.id) setActiveId(current.id);
+    };
+    const syncFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (links.some((link) => link.id === hash)) setActiveId(hash);
+      else updateActiveFromScroll();
+    };
+    syncFromHash();
+    updateActiveFromScroll();
+    window.addEventListener("scroll", updateActiveFromScroll, { passive: true });
+    window.addEventListener("resize", updateActiveFromScroll);
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      window.removeEventListener("scroll", updateActiveFromScroll);
+      window.removeEventListener("resize", updateActiveFromScroll);
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, []);
+
+  const visibleLinks = expanded ? links : [activeLink];
+
+  return (
+    <div
+      className="fixed bottom-6 right-5 md:bottom-8 md:right-8 z-50 pointer-events-none"
+      onMouseEnter={() => setExpanded(true)}
+      onMouseLeave={() => setExpanded(false)}
+      onFocus={() => setExpanded(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(false);
+      }}
+    >
+      <nav
+        aria-label="About page sections"
+        className="pointer-events-auto flex flex-col items-end gap-2 rounded-[28px] border border-rule p-2 shadow-lift backdrop-blur transition-all"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(198,186,224,0.76) 0%, rgba(238,207,222,0.76) 50%, rgba(198,186,224,0.76) 100%)",
+        }}
+      >
+        {visibleLinks.map(({ Icon, ...link }) => (
+          <a
+            key={link.href}
+            href={link.href}
+            aria-current={activeId === link.id ? "location" : undefined}
+            onClick={(event) => {
+              if (!expanded) {
+                event.preventDefault();
+                setExpanded(true);
+                return;
+              }
+              setActiveId(link.id);
+              setExpanded(false);
+            }}
+            className="group flex min-h-11 items-center justify-end gap-3 rounded-full px-3 py-2 text-[13px] font-medium text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+          >
+            {expanded && <span className="whitespace-nowrap">{link.label}</span>}
+            <span className="flex h-7 w-7 items-center justify-center rounded-full">
+              <Icon className="h-4 w-4" aria-hidden="true" />
+            </span>
+            {!expanded && <span className="sr-only">{link.label}</span>}
+          </a>
+        ))}
+        {!expanded && (
+          <button
+            type="button"
+            className="sr-only"
+            onClick={() => setExpanded(true)}
+            aria-label="Expand about section shortcuts"
+          />
+        )}
+      </nav>
+    </div>
+  );
+}
+
 function ExperienceSection() {
   return (
-    <section className="border-b border-rule">
+    <section id="experience" className="scroll-mt-28 border-b border-rule">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
         <Reveal>
           <div className="flex items-end justify-between flex-wrap gap-6">
@@ -133,7 +229,7 @@ function ExperienceSection() {
 
 function PublicationsSection() {
   return (
-    <section className="border-b border-rule" style={{ background: "#e5eaf6" }}>
+    <section id="press-publications" className="scroll-mt-28 border-b border-rule" style={{ background: "#fff8f6" }}>
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
         <Reveal>
           <SectionHead kicker="Press & Publications" title="Appearances" tone="ochre" />
@@ -174,7 +270,7 @@ function CommunitySection() {
     "linear-gradient(135deg, #FFF8F6 0%, #F5DDE7 100%)",
   ];
   return (
-    <section className="border-b border-rule">
+    <section id="mentoring-community" className="scroll-mt-28 border-b border-rule">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
         <Reveal>
           <SectionHead kicker="Mentoring & Community" title="Volunteering activities" />
@@ -243,7 +339,7 @@ function CommunitySection() {
 
 function AchievementsSection() {
   return (
-    <section className="border-b border-rule grad-signature text-ink">
+    <section id="achievements" className="scroll-mt-28 border-b border-rule grad-signature text-ink">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
         <Reveal>
           <div className="eyebrow text-ink/65">Achievements</div>
@@ -271,7 +367,7 @@ function AchievementsSection() {
 
 function ToolkitContactSection() {
   return (
-    <section>
+    <section id="toolkit" className="scroll-mt-28">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14">
           <div className="md:col-span-6">
@@ -376,10 +472,11 @@ function About() {
   return (
     <>
       <AboutHero />
+      <SectionShortcuts />
       <ExperienceSection />
+      <AchievementsSection />
       <PublicationsSection />
       <CommunitySection />
-      <AchievementsSection />
       <ToolkitContactSection />
     </>
   );

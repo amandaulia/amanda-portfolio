@@ -53,14 +53,15 @@ function ArtifactCarousel({ items }: any) {
         </div>
       </div>
 
-      <button type="button" onClick={() => setLightboxOpen(true)} aria-label="Open image" className="block w-full cursor-zoom-in">
+      <button
+        type="button"
+        onClick={() => setLightboxOpen(true)}
+        aria-label="Open image"
+        className="block w-full cursor-zoom-in rounded-xl"
+        style={{ backgroundColor: "#ffffff", color: "#7B7E94" }}
+      >
         <Placeholder {...p} aspectRatio="4 / 3" />
       </button>
-      <div className="mt-5 flex gap-1.5">
-        {items.map((_: any, i: number) => (
-          <button key={i} onClick={() => setIdx(i)} className={`flex-1 h-[3px] rounded-full transition-colors ${i === idx ? "bg-teal" : "bg-rule hover:bg-muted"}`} />
-        ))}
-      </div>
 
       <ImageLightbox
         open={lightboxOpen}
