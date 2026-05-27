@@ -60,9 +60,7 @@ function AboutHero() {
             {/* Name + description aligned to the right of the photo */}
             <div className="flex-1 min-w-0">
               <h1 className="display text-[48px] md:text-[80px] leading-[0.96] tracking-[-0.04em]">
-                Amanda
-                <br />
-                <span className="display-it grad-text">Hanggoro</span>
+                Amanda <span className="display-it grad-text">Hanggoro</span>
               </h1>
               <p className="mt-8 text-[19px] md:text-[20px] leading-[1.6] text-ink/85">
                 Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
