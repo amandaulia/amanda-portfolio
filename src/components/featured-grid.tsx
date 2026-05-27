@@ -38,8 +38,6 @@ export function FeaturedSpotlight() {
         </div>
       </div>
 
-      <Link to="/work/$slug" params={{ slug: c.slug }} className="block group">
-        <div className="relative">
       <div className="block group">
         <button
           type="button"
