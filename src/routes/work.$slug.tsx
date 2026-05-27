@@ -3,6 +3,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { CASE_STUDIES, CS_BY_SLUG } from "../lib/portfolio-data";
 import { Reveal, TagRow, SectionHead, Placeholder } from "../components/portfolio-ui";
+import { ImageLightbox } from "../components/lightbox";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -25,12 +26,16 @@ function ArtifactCarousel({ items }: any) {
   if (!items || items.length === 0) return null;
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   useEffect(() => {
     if (paused || items.length < 2) return;
     const t = setInterval(() => setIdx((i) => (i + 1) % items.length), 5500);
     return () => clearInterval(t);
   }, [paused, items.length]);
   const p = items[idx];
+  const slides = items
+    .map((it: any) => ({ src: it.img || it.image || it.imageUrl || it.src }))
+    .filter((s: any) => s.src);
   return (
     <div
       className="relative bg-white rounded-2xl shadow-lift p-5 md:p-6 border border-rule"
@@ -48,12 +53,22 @@ function ArtifactCarousel({ items }: any) {
         </div>
       </div>
 
-      <Placeholder {...p} aspectRatio="4 / 3" />
+      <button type="button" onClick={() => setLightboxOpen(true)} aria-label="Open image" className="block w-full cursor-zoom-in">
+        <Placeholder {...p} aspectRatio="4 / 3" />
+      </button>
       <div className="mt-5 flex gap-1.5">
         {items.map((_: any, i: number) => (
           <button key={i} onClick={() => setIdx(i)} className={`flex-1 h-[3px] rounded-full transition-colors ${i === idx ? "bg-teal" : "bg-rule hover:bg-muted"}`} />
         ))}
       </div>
+
+      <ImageLightbox
+        open={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        slides={slides}
+        index={idx}
+        onIndexChange={(i: number) => setIdx(i)}
+      />
     </div>
   );
 }

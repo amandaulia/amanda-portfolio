@@ -3,12 +3,15 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { CASE_STUDIES } from "../lib/portfolio-data";
 import { Reveal, Chip, TagRow, SectionHead, Placeholder } from "./portfolio-ui";
+import { ImageLightbox } from "./lightbox";
 
 export function FeaturedSpotlight() {
   const heros = CASE_STUDIES.filter((c) => c.kind === "hero");
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const c = heros[idx];
+  const heroSlides = heros.map((h) => ({ src: h.placeholders?.[0]?.img || h.placeholders?.[0]?.image || h.placeholders?.[0]?.imageUrl || h.placeholders?.[0]?.src })).filter((s) => s.src);
 
   useEffect(() => {
     if (paused) return;
@@ -35,20 +38,34 @@ export function FeaturedSpotlight() {
         </div>
       </div>
 
-      <Link to="/work/$slug" params={{ slug: c.slug }} className="block group">
-        <div className="relative">
+      <div className="block group">
+        <button
+          type="button"
+          onClick={() => setLightboxOpen(true)}
+          aria-label="Open image"
+          className="relative block w-full cursor-zoom-in"
+        >
           <Placeholder {...(c.placeholders?.[0] ?? {})} aspectRatio="4 / 3" className="w-full rounded-xl" />
           <div className="absolute top-4 left-4"><Chip variant="ink">{c.category}</Chip></div>
-        </div>
+        </button>
 
-        <div className="mt-5 flex items-start justify-between gap-6">
+        <Link to="/work/$slug" params={{ slug: c.slug }} className="mt-5 flex items-start justify-between gap-6 group">
           <div className="flex-1 min-w-0">
             <div className="eyebrow-sm text-teal">{c.company}</div>
             <h3 className="display text-2xl md:text-[30px] leading-[1.05] mt-2 text-ink group-hover:text-teal transition-colors">{c.title}</h3>
           </div>
           <span className="arr inline-block text-[20px] text-ink mt-1">→</span>
-        </div>
-      </Link>
+        </Link>
+      </div>
+
+      <ImageLightbox
+        open={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        slides={heroSlides}
+        index={idx}
+        onIndexChange={(i: number) => setIdx(i)}
+      />
+
 
       <div className="mt-6 flex gap-1.5">
         {heros.map((h, i) => (
