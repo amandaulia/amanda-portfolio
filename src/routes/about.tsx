@@ -407,6 +407,8 @@ function CommunitySection() {
 }
 
 function AchievementsSection() {
+  const sortedAchievements = [...ACHIEVEMENTS].sort((a: any, b: any) => Number(b.year) - Number(a.year));
+
   return (
     <section id="achievements" className="scroll-mt-28 border-b border-rule grad-signature text-ink">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-24">
@@ -415,7 +417,7 @@ function AchievementsSection() {
           <h2 className="display text-4xl md:text-6xl mt-4 text-ink">Awards and honors</h2>
         </Reveal>
         <ul className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6">
-          {ACHIEVEMENTS.map((a: any, i: number) => (
+          {sortedAchievements.map((a: any, i: number) => (
             <li key={i}>
               <Reveal delay={i * 60}>
                 <div className="flex items-start gap-5 py-2 border-b border-ink/15">
