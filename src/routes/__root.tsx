@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { TopNav, Footer, useScrollTopOnRoute } from "../components/portfolio-layout";
+import { TopNav, Footer, ScrollToTopButton, useScrollTopOnRoute } from "../components/portfolio-layout";
 
 function NotFoundComponent() {
   return (
@@ -98,6 +98,7 @@ function Shell() {
       <main className="flex-1">
         <Outlet />
       </main>
+      <ScrollToTopButton />
       <Footer />
     </div>
   );

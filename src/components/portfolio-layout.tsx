@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { ArrowUp, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 function NavItem({ to, children, exact = false }: any) {
@@ -130,4 +130,47 @@ export function useScrollTopOnRoute() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [path]);
+}
+
+export function ScrollToTopButton() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const [visible, setVisible] = useState(false);
+  const hasSectionShortcuts = path === "/about" || path.startsWith("/work/");
+
+  useEffect(() => {
+    const updateVisibility = () => {
+      const pageCanScroll = document.documentElement.scrollHeight > window.innerHeight + 24;
+      setVisible(pageCanScroll && window.scrollY > 240);
+    };
+
+    updateVisibility();
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility);
+    return () => {
+      window.removeEventListener("scroll", updateVisibility);
+      window.removeEventListener("resize", updateVisibility);
+    };
+  }, [path]);
+
+  if (hasSectionShortcuts || !visible) return null;
+
+  return (
+    <button
+      type="button"
+      aria-label="Scroll to top"
+      onClick={() => {
+        window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
+      className="fixed bottom-6 left-1/2 z-50 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border border-rule text-ink/75 shadow-lift backdrop-blur transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none md:bottom-8"
+      style={{
+        background:
+          "linear-gradient(90deg, rgba(198,186,224,0.76) 0%, rgba(238,207,222,0.76) 50%, rgba(198,186,224,0.76) 100%)",
+        color: "rgba(28, 30, 46, 0.75)",
+        boxShadow: "0 18px 44px -16px rgba(28, 30, 46, 0.34), 0 8px 22px -12px rgba(163, 82, 81, 0.34)",
+      }}
+    >
+      <ArrowUp className="h-5 w-5" aria-hidden="true" />
+    </button>
+  );
 }

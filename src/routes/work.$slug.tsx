@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ArrowUp, BarChart3, ClipboardList, FileText, Lightbulb, Route as RouteIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { CASE_STUDIES, CS_BY_SLUG } from "../lib/portfolio-data";
 import { Reveal, TagRow, SectionHead, Placeholder } from "../components/portfolio-ui";
@@ -76,7 +77,7 @@ function ArtifactCarousel({ items }: any) {
 
 function CaseHero({ c }: any) {
   return (
-    <section className="border-b border-rule">
+    <section id="summary" className="scroll-mt-28 border-b border-rule">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-16 md:pb-20">
         <Reveal>
           <div className="flex items-center justify-between flex-wrap gap-4">
@@ -115,9 +116,9 @@ function CaseHero({ c }: any) {
   );
 }
 
-function TwoColSection({ kicker, title, body, side, children }: any) {
+function TwoColSection({ id, kicker, title, body, side, children }: any) {
   return (
-    <section className="border-b border-rule">
+    <section id={id} className="scroll-mt-28 border-b border-rule">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-4">
@@ -208,7 +209,7 @@ function NextNav({ current }: any) {
 function MetricsBand({ c }: any) {
   if (!c.metrics) return null;
   return (
-    <section className="border-y border-rule grad-signature text-paper">
+    <section id="outcome" className="scroll-mt-28 border-y border-rule grad-signature text-paper">
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
         <Reveal>
           <div className="eyebrow" style={{ color: "rgb(24,31,48)" }}>Outcome</div>
@@ -229,14 +230,143 @@ function MetricsBand({ c }: any) {
   );
 }
 
+function CaseStudyShortcuts() {
+  const links = [
+    { id: "summary", href: "#summary", label: "Summary", Icon: FileText },
+    { id: "problem", href: "#problem", label: "Problem", Icon: ClipboardList },
+    { id: "process", href: "#process", label: "Process", Icon: RouteIcon },
+    { id: "solution", href: "#solution", label: "Solution", Icon: Lightbulb },
+    { id: "outcome", href: "#outcome", label: "Outcome", Icon: BarChart3 },
+  ];
+  const [activeId, setActiveId] = useState<string | null>("summary");
+  const [expanded, setExpanded] = useState(false);
+  const [hasScrolledBelowFold, setHasScrolledBelowFold] = useState(false);
+  const activeLink = activeId ? links.find((link) => link.id === activeId) : null;
+
+  useEffect(() => {
+    const getSections = () => links.map((link) => document.getElementById(link.id)).filter(Boolean);
+    const updateActiveFromScroll = () => {
+      const hasScrolled = window.scrollY > 24;
+      setHasScrolledBelowFold(hasScrolled);
+      if (!hasScrolled) {
+        setExpanded(false);
+      }
+      const anchorY = window.scrollY + window.innerHeight * 0.45;
+      const sections = getSections();
+      const lastSection = sections[sections.length - 1];
+      if (lastSection && anchorY > lastSection.offsetTop + lastSection.offsetHeight) {
+        setExpanded(false);
+        setActiveId(null);
+        return;
+      }
+      const passed = sections.filter((section) => section.offsetTop <= anchorY);
+      const current = passed[passed.length - 1] ?? sections[0];
+      if (current?.id) setActiveId(current.id);
+    };
+    const syncFromHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (links.some((link) => link.id === hash)) setActiveId(hash);
+      else updateActiveFromScroll();
+    };
+    syncFromHash();
+    updateActiveFromScroll();
+    window.addEventListener("scroll", updateActiveFromScroll, { passive: true });
+    window.addEventListener("resize", updateActiveFromScroll);
+    window.addEventListener("hashchange", syncFromHash);
+    return () => {
+      window.removeEventListener("scroll", updateActiveFromScroll);
+      window.removeEventListener("resize", updateActiveFromScroll);
+      window.removeEventListener("hashchange", syncFromHash);
+    };
+  }, []);
+
+  const visibleLinks = expanded && activeLink ? links : activeLink ? [activeLink] : [];
+  if (!hasScrolledBelowFold) return null;
+
+  return (
+    <div
+      className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 pointer-events-none md:bottom-8"
+      onMouseEnter={() => {
+        if (activeLink) setExpanded(true);
+      }}
+      onMouseLeave={() => setExpanded(false)}
+      onFocus={() => {
+        if (activeLink) setExpanded(true);
+      }}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(false);
+      }}
+    >
+      <nav
+        aria-label="Case study sections"
+        className="pointer-events-auto flex flex-col items-center gap-2 rounded-[28px] border border-rule p-2 backdrop-blur transition-all"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(198,186,224,0.76) 0%, rgba(238,207,222,0.76) 50%, rgba(198,186,224,0.76) 100%)",
+          boxShadow: "0 18px 44px -16px rgba(28, 30, 46, 0.34), 0 8px 22px -12px rgba(163, 82, 81, 0.34)",
+        }}
+      >
+        {!activeLink && (
+          <button
+            type="button"
+            aria-label="Scroll to top"
+            onClick={() => {
+              window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="group flex h-8 w-8 items-center justify-center rounded-full text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+            style={{ background: "transparent", color: "inherit" }}
+          >
+            <ArrowUp className="h-4 w-4" aria-hidden="true" />
+          </button>
+        )}
+        {visibleLinks.map(({ Icon, ...link }) =>
+          expanded ? (
+            <a
+              key={link.href}
+              href={link.href}
+              aria-current={activeId === link.id ? "location" : undefined}
+              onClick={() => {
+                setActiveId(link.id);
+                setExpanded(false);
+              }}
+              className="group flex min-h-11 items-center justify-end gap-3 rounded-full px-3 py-2 text-[13px] font-medium text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+            >
+              <span className="whitespace-nowrap">{link.label}</span>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full">
+                <Icon className="h-4 w-4" aria-hidden="true" />
+              </span>
+            </a>
+          ) : (
+            <button
+              key={link.href}
+              type="button"
+              aria-label="Open case study section shortcuts"
+              onClick={() => setExpanded(true)}
+              className="group flex min-h-8 items-center justify-center gap-2 rounded-full px-3 py-1.5 text-[12px] font-medium text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+              style={{ background: "transparent", color: "inherit" }}
+            >
+              <span className="whitespace-nowrap">{link.label}</span>
+              <span className="flex h-5 w-5 items-center justify-center rounded-full">
+                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+            </button>
+          ),
+        )}
+      </nav>
+    </div>
+  );
+}
+
 function HeroCase({ c }: any) {
   const isElysium = c.slug === "elysium";
   return (
     <>
       <CaseHero c={c} />
-      <TwoColSection kicker="Problem" title="What we were actually solving" body={c.problem} />
+      <CaseStudyShortcuts />
+      <TwoColSection id="problem" kicker="Problem" title="What we were actually solving" body={c.problem} />
       {isElysium ? (
-        <section className="border-b border-rule">
+        <section id="process" className="scroll-mt-28 border-b border-rule">
           <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
               <div className="md:col-span-4">
@@ -252,7 +382,7 @@ function HeroCase({ c }: any) {
           </div>
         </section>
       ) : (
-        <section className="border-b border-rule">
+        <section id="process" className="scroll-mt-28 border-b border-rule">
           <div className="max-w-[1280px] mx-auto px-6 md:px-10 py-20 md:py-28">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
               <div className="md:col-span-4">
@@ -275,7 +405,7 @@ function HeroCase({ c }: any) {
           </div>
         </section>
       )}
-      <TwoColSection kicker="Solution" title="What shipped" body={c.solution} />
+      <TwoColSection id="solution" kicker="Solution" title="What shipped" body={c.solution} />
       <MetricsBand c={c} />
       <NextNav current={c} />
     </>

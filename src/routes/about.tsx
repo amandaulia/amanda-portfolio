@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { createFileRoute } from "@tanstack/react-router";
-import { BriefcaseBusiness, Newspaper, Sparkles, Trophy, Users } from "lucide-react";
+import { ArrowUp, BriefcaseBusiness, CircleUserRound, Newspaper, Sparkles, Trophy, Users } from "lucide-react";
 import { useEffect, useState } from "react";
 import { SKILLS, EXPERIENCE, PUBLICATIONS, MENTORING, COMMUNITY, ACHIEVEMENTS } from "../lib/portfolio-data";
 import { Reveal, Chip, SectionHead } from "../components/portfolio-ui";
@@ -48,21 +48,19 @@ function AboutHero() {
           </div>
         </Reveal>
         <Reveal delay={80}>
-          <div className="flex items-start gap-8 mt-7">
-            {/* Circular photo on the left */}
+          <div className="hidden md:flex items-start gap-8 mt-7">
             <div className="flex-shrink-0">
               <img
                 src="https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Headshot.jpeg"
                 alt="Amanda Hanggoro"
-                className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full object-cover object-top shadow-warm border-2 border-rule"
+                className="w-36 h-36 lg:w-44 lg:h-44 rounded-full object-cover object-top shadow-warm border-2 border-rule"
               />
             </div>
-            {/* Name + description aligned to the right of the photo */}
             <div className="flex-1 min-w-0">
-              <h1 className="display text-[48px] md:text-[80px] leading-[0.96] tracking-[-0.04em]">
+              <h1 className="display text-[80px] leading-[0.96] tracking-[-0.04em]">
                 Amanda <span className="display-it grad-text">Hanggoro</span>
               </h1>
-              <p className="mt-8 text-[19px] md:text-[20px] leading-[1.6] text-ink/85">
+              <p className="mt-8 text-[20px] leading-[1.6] text-ink/85">
                 Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
                 private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving
                 conversion, retention, and operational efficiency across{" "}
@@ -78,6 +76,41 @@ function AboutHero() {
             </div>
           </div>
         </Reveal>
+        <div className="mt-7 md:hidden">
+          <div className="flex items-start gap-4">
+            <Reveal delay={120}>
+              <div className="mt-1 h-24 w-24 flex-shrink-0 overflow-hidden rounded-full shadow-warm border-2 border-rule">
+                <img
+                  src="https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Headshot.jpeg"
+                  alt="Amanda Hanggoro"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="display min-w-0 text-[44px] leading-[0.96] tracking-[-0.04em]">
+                Amanda <span className="display-it grad-text">Hanggoro</span>
+              </h1>
+            </Reveal>
+          </div>
+          <Reveal delay={140}>
+            <div className="mt-6">
+              <p className="text-[16px] leading-[1.55] text-ink/85">
+                Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
+                private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving
+                conversion, retention, and operational efficiency across{" "}
+                <span className="text-ink font-medium">Southeast Asia, MENA, and the United States.</span>
+              </p>
+              <p className="mt-4 text-[15px] leading-[1.55] text-muted">
+                I also build databases, automations, and full-stack applications independently, check it at{" "}
+                <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">
+                  github.com/amandaulia
+                </a>
+                .
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -85,21 +118,34 @@ function AboutHero() {
 
 function SectionShortcuts() {
   const links = [
+    { id: "about", href: "#about", label: "Profile", Icon: CircleUserRound },
     { id: "experience", href: "#experience", label: "Experience", Icon: BriefcaseBusiness },
     { id: "achievements", href: "#achievements", label: "Achievements", Icon: Trophy },
     { id: "press-publications", href: "#press-publications", label: "Press & Publications", Icon: Newspaper },
     { id: "mentoring-community", href: "#mentoring-community", label: "Mentoring & Community", Icon: Users },
     { id: "toolkit", href: "#toolkit", label: "Toolkit", Icon: Sparkles },
   ];
-  const [activeId, setActiveId] = useState("experience");
+  const [activeId, setActiveId] = useState<string | null>("experience");
   const [expanded, setExpanded] = useState(false);
-  const activeLink = links.find((link) => link.id === activeId) ?? links[0];
+  const [hasScrolledBelowFold, setHasScrolledBelowFold] = useState(false);
+  const activeLink = activeId ? links.find((link) => link.id === activeId) : null;
 
   useEffect(() => {
     const getSections = () => links.map((link) => document.getElementById(link.id)).filter(Boolean);
     const updateActiveFromScroll = () => {
+      const hasScrolled = window.scrollY > 24;
+      setHasScrolledBelowFold(hasScrolled);
+      if (!hasScrolled) {
+        setExpanded(false);
+      }
       const anchorY = window.scrollY + window.innerHeight * 0.45;
       const sections = getSections();
+      const lastSection = sections[sections.length - 1];
+      if (lastSection && anchorY > lastSection.offsetTop + lastSection.offsetHeight) {
+        setExpanded(false);
+        setActiveId(null);
+        return;
+      }
       const passed = sections.filter((section) => section.offsetTop <= anchorY);
       const current = passed[passed.length - 1] ?? sections[0];
       if (current?.id) setActiveId(current.id);
@@ -121,49 +167,79 @@ function SectionShortcuts() {
     };
   }, []);
 
-  const visibleLinks = expanded ? links : [activeLink];
+  const visibleLinks = expanded && activeLink ? links : activeLink ? [activeLink] : [];
+  if (!hasScrolledBelowFold) return null;
 
   return (
     <div
-      className="fixed bottom-6 right-5 md:bottom-8 md:right-8 z-50 pointer-events-none"
-      onMouseEnter={() => setExpanded(true)}
+      className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 pointer-events-none md:bottom-8"
+      onMouseEnter={() => {
+        if (activeLink) setExpanded(true);
+      }}
       onMouseLeave={() => setExpanded(false)}
-      onFocus={() => setExpanded(true)}
+      onFocus={() => {
+        if (activeLink) setExpanded(true);
+      }}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) setExpanded(false);
       }}
     >
       <nav
         aria-label="About page sections"
-        className="pointer-events-auto flex flex-col items-end gap-2 rounded-[28px] border border-rule p-2 shadow-lift backdrop-blur transition-all"
+        className="pointer-events-auto flex flex-col items-center gap-2 rounded-[28px] border border-rule p-2 shadow-lift backdrop-blur transition-all"
         style={{
           background:
             "linear-gradient(90deg, rgba(198,186,224,0.76) 0%, rgba(238,207,222,0.76) 50%, rgba(198,186,224,0.76) 100%)",
+          boxShadow: "0 18px 44px -16px rgba(28, 30, 46, 0.34), 0 8px 22px -12px rgba(163, 82, 81, 0.34)",
         }}
       >
-        {visibleLinks.map(({ Icon, ...link }) => (
-          <a
-            key={link.href}
-            href={link.href}
-            aria-current={activeId === link.id ? "location" : undefined}
-            onClick={(event) => {
-              if (!expanded) {
-                event.preventDefault();
-                setExpanded(true);
-                return;
-              }
-              setActiveId(link.id);
-              setExpanded(false);
+        {!activeLink && (
+          <button
+            type="button"
+            aria-label="Scroll to top"
+            onClick={() => {
+              window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="group flex min-h-11 items-center justify-end gap-3 rounded-full px-3 py-2 text-[13px] font-medium text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+            className="group flex h-8 w-8 items-center justify-center rounded-full text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+            style={{ background: "transparent", color: "inherit" }}
           >
-            {expanded && <span className="whitespace-nowrap">{link.label}</span>}
-            <span className="flex h-7 w-7 items-center justify-center rounded-full">
-              <Icon className="h-4 w-4" aria-hidden="true" />
-            </span>
-            {!expanded && <span className="sr-only">{link.label}</span>}
-          </a>
-        ))}
+            <ArrowUp className="h-4 w-4" aria-hidden="true" />
+          </button>
+        )}
+        {visibleLinks.map(({ Icon, ...link }) =>
+          expanded ? (
+            <a
+              key={link.href}
+              href={link.href}
+              aria-current={activeId === link.id ? "location" : undefined}
+              onClick={() => {
+                setActiveId(link.id);
+                setExpanded(false);
+              }}
+              className="group flex min-h-11 items-center justify-end gap-3 rounded-full px-3 py-2 text-[13px] font-medium text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+            >
+              <span className="whitespace-nowrap">{link.label}</span>
+              <span className="flex h-7 w-7 items-center justify-center rounded-full">
+                <Icon className="h-4 w-4" aria-hidden="true" />
+              </span>
+            </a>
+          ) : (
+            <button
+              key={link.href}
+              type="button"
+              aria-label="Open about section shortcuts"
+              onClick={() => setExpanded(true)}
+              className="group flex min-h-8 items-center justify-center gap-2 rounded-full px-3 py-1.5 text-[12px] font-medium text-ink/75 transition-colors hover:bg-[#eddce6] hover:text-ink focus:bg-[#eddce6] focus:text-ink focus:outline-none"
+              style={{ background: "transparent", color: "inherit" }}
+            >
+              <span className="whitespace-nowrap">{link.label}</span>
+              <span className="flex h-5 w-5 items-center justify-center rounded-full">
+                <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+            </button>
+          ),
+        )}
         {!expanded && (
           <button
             type="button"
