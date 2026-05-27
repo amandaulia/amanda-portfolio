@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { CASE_STUDIES } from "../lib/portfolio-data";
 import { Reveal, Chip, TagRow, SectionHead, Placeholder } from "./portfolio-ui";
+import { ImageLightbox } from "./lightbox";
 
 export function FeaturedSpotlight() {
   const heros = CASE_STUDIES.filter((c) => c.kind === "hero");
