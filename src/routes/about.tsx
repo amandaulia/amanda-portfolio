@@ -38,53 +38,46 @@ function AboutHero() {
           filter: "blur(50px)",
         }}
       />
-      <div className="relative max-w-[1280px] mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-16 md:pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
-          <div className="md:col-span-7">
-            <Reveal>
-              <div className="flex items-center gap-3 flex-wrap">
-                <Chip variant="teal" dotColor="#0E4D45">
-                  Currently — PM at Wego
-                </Chip>
-                <span className="eyebrow-sm">Jakarta, ID</span>
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="display mt-7 text-[48px] md:text-[80px] leading-[0.96] tracking-[-0.04em]">
-                Amanda
-                <br />
-                <span className="display-it grad-text">Hanggoro</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={140}>
-              <p className="mt-8 text-[19px] md:text-[20px] leading-[1.6] text-ink/85 max-w-xl">
-                Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
-                private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving
-                conversion, retention, and operational efficiency across{" "}
-                <span className="text-ink font-medium">Southeast Asia, MENA, and the United States.</span>
-              </p>
-              <p className="mt-5 text-[17px] leading-[1.6] text-muted max-w-xl">
-                I also build databases, automations, and full-stack applications independently, check it at{" "}
-                <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">
-                  github.com/amandaulia
-                </a>
-                .
-              </p>
-            </Reveal>
+      <div className="relative max-w-[1280px] mx-auto px-6 md:px-10 pt-14 md:pt-20 pb-12 md:pb-14">
+        <Reveal>
+          <div className="flex items-center gap-3 flex-wrap">
+            <Chip variant="teal" dotColor="#0E4D45">
+              Currently — PM at Wego
+            </Chip>
+            <span className="eyebrow-sm">Jakarta, ID</span>
           </div>
-          <div className="md:col-span-5">
-            <Reveal delay={120}>
-              <div className="w-full overflow-hidden rounded-md shadow-warm border border-rule">
-                <img
-                  src="https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Profile%20Picture.JPG"
-                  alt="Amanda Hanggoro portrait"
-                  className="w-full h-full object-cover"
-                  style={{ aspectRatio: "4 / 5" }}
-                />
-              </div>
-            </Reveal>
+        </Reveal>
+        <Reveal delay={80}>
+          <div className="flex items-center gap-8 mt-7">
+            <h1 className="display text-[48px] md:text-[80px] leading-[0.96] tracking-[-0.04em]">
+              Amanda
+              <br />
+              <span className="display-it grad-text">Hanggoro</span>
+            </h1>
+            <div className="flex-shrink-0 self-center">
+              <img
+                src="https://oiajuwfpkxcvklxwyriz.supabase.co/storage/v1/object/public/images/Headshot.jpeg"
+                alt="Amanda Hanggoro"
+                className="w-28 h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full object-cover object-top shadow-warm border-2 border-rule"
+              />
+            </div>
           </div>
-        </div>
+        </Reveal>
+        <Reveal delay={140}>
+          <p className="mt-8 text-[19px] md:text-[20px] leading-[1.6] text-ink/85 max-w-3xl">
+            Product Manager with <span className="text-ink font-medium">5+ years</span> across the public and
+            private sector in SaaS, travel, healthcare, climate, education, and finance. Track record of driving
+            conversion, retention, and operational efficiency across{" "}
+            <span className="text-ink font-medium">Southeast Asia, MENA, and the United States.</span>
+          </p>
+          <p className="mt-5 text-[17px] leading-[1.6] text-muted max-w-3xl">
+            I also build databases, automations, and full-stack applications independently, check it at{" "}
+            <a href="https://github.com/amandaulia" target="_blank" rel="noreferrer" className="ulink text-ink">
+              github.com/amandaulia
+            </a>
+            .
+          </p>
+        </Reveal>
       </div>
     </section>
   );
