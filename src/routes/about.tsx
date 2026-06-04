@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUp, BriefcaseBusiness, CircleUserRound, Newspaper, Sparkles, Trophy, Users } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SKILLS, EXPERIENCE, PUBLICATIONS, MENTORING, COMMUNITY, ACHIEVEMENTS } from "../lib/portfolio-data";
 import { Reveal, Chip, SectionHead } from "../components/portfolio-ui";
 
@@ -128,7 +128,19 @@ function SectionShortcuts() {
   const [activeId, setActiveId] = useState<string | null>("experience");
   const [expanded, setExpanded] = useState(false);
   const [hasScrolledBelowFold, setHasScrolledBelowFold] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const activeLink = activeId ? links.find((link) => link.id === activeId) : null;
+
+  useEffect(() => {
+    if (!expanded) return;
+    const handlePointerDown = (e: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setExpanded(false);
+      }
+    };
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [expanded]);
 
   useEffect(() => {
     const getSections = () => links.map((link) => document.getElementById(link.id)).filter(Boolean);
@@ -172,11 +184,14 @@ function SectionShortcuts() {
 
   return (
     <div
+      ref={containerRef}
       className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 pointer-events-none md:bottom-8"
-      onMouseEnter={() => {
-        if (activeLink) setExpanded(true);
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse" && activeLink) setExpanded(true);
       }}
-      onMouseLeave={() => setExpanded(false)}
+      onPointerLeave={(e) => {
+        if (e.pointerType === "mouse") setExpanded(false);
+      }}
       onFocus={() => {
         if (activeLink) setExpanded(true);
       }}
