@@ -80,7 +80,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     period: "2021 — 2022",
     geo: "Jakarta, Thailand & Vietnam",
     category: "Consumer",
-    tags: ["Consumer", "Edtech", "Game Design"],
+    tags: ["Edtech", "Consumer", "Game Design"],
     metrics: [
       { value: "+25%", label: "conversion-to-learn" },
       { value: "+28%", label: "time-in-app" },
