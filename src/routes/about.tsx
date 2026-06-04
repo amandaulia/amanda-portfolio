@@ -128,7 +128,19 @@ function SectionShortcuts() {
   const [activeId, setActiveId] = useState<string | null>("experience");
   const [expanded, setExpanded] = useState(false);
   const [hasScrolledBelowFold, setHasScrolledBelowFold] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const activeLink = activeId ? links.find((link) => link.id === activeId) : null;
+
+  useEffect(() => {
+    if (!expanded) return;
+    const handlePointerDown = (e: PointerEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setExpanded(false);
+      }
+    };
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [expanded]);
 
   useEffect(() => {
     const getSections = () => links.map((link) => document.getElementById(link.id)).filter(Boolean);
