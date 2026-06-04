@@ -172,11 +172,14 @@ function SectionShortcuts() {
 
   return (
     <div
+      ref={containerRef}
       className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 pointer-events-none md:bottom-8"
-      onMouseEnter={() => {
-        if (activeLink) setExpanded(true);
+      onPointerEnter={(e) => {
+        if (e.pointerType === "mouse" && activeLink) setExpanded(true);
       }}
-      onMouseLeave={() => setExpanded(false)}
+      onPointerLeave={(e) => {
+        if (e.pointerType === "mouse") setExpanded(false);
+      }}
       onFocus={() => {
         if (activeLink) setExpanded(true);
       }}
