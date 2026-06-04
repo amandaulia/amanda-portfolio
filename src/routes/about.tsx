@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUp, BriefcaseBusiness, CircleUserRound, Newspaper, Sparkles, Trophy, Users } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SKILLS, EXPERIENCE, PUBLICATIONS, MENTORING, COMMUNITY, ACHIEVEMENTS } from "../lib/portfolio-data";
 import { Reveal, Chip, SectionHead } from "../components/portfolio-ui";
 
