@@ -58,7 +58,7 @@ export function TagRow({ tags = [], lead = "teal", size = "md" }: any) {
   );
 }
 
-export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, imageUrl, src, className = "" }: any) {
+export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, imageUrl, src, className = "", priority = false }: any) {
   const imageSrc = img || image || imageUrl || src;
   const [failed, setFailed] = useState(false);
   useEffect(() => setFailed(false), [imageSrc]);
@@ -69,7 +69,17 @@ export function Placeholder({ label, caption, h = 320, aspectRatio, img, image, 
         style={aspectRatio ? { aspectRatio } : { height: h }}
       >
         {imageSrc && !failed ? (
-          <img src={imageSrc} alt={label} className="w-full h-full object-cover object-top" onError={() => setFailed(true)} />
+          <img
+            src={imageSrc}
+            alt={label}
+            width={1200}
+            height={900}
+            loading={priority ? "eager" : "lazy"}
+            decoding={priority ? "sync" : "async"}
+            {...(priority ? { fetchpriority: "high" } : {})}
+            className="w-full h-full object-cover object-top"
+            onError={() => setFailed(true)}
+          />
         ) : (
           <div className="text-center px-6">
             <div className="display text-xl md:text-2xl text-ink/70">{label}</div>

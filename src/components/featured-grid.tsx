@@ -46,7 +46,7 @@ export function FeaturedSpotlight() {
           className="relative block w-full cursor-zoom-in rounded-xl"
           style={{ backgroundColor: "#ffffff", color: "#7B7E94" }}
         >
-          <Placeholder {...(c.placeholders?.[0] ?? {})} caption={undefined} aspectRatio="4 / 3" className="w-full rounded-xl" />
+          <Placeholder {...(c.placeholders?.[0] ?? {})} caption={undefined} aspectRatio="4 / 3" className="w-full rounded-xl" priority={idx === 0} />
           <div className="absolute top-4 left-4"><Chip variant="ink">{c.category}</Chip></div>
         </button>
 
