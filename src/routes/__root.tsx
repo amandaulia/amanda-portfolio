@@ -49,6 +49,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "zKiSj4KtTS3Rf_LLwRykyoB74pGdR3A5ypjvEcWiYd4" },
       { title: "Amanda Hanggoro — Product Manager" },
       { name: "description", content: "Product Manager with 5+ years across consumer, AI/ML, healthtech, and social-impact products in SEA, MENA, and the US." },
       { property: "og:title", content: "Amanda Hanggoro — Product Manager" },
