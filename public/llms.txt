@@ -1,0 +1,20 @@
+# Amanda Hanggoro — Product Manager
+
+> Product Manager with 5+ years shipping consumer, AI/ML, healthtech, and social-impact products across Southeast Asia, MENA, and the United States.
+
+This site is a portfolio and case-study archive. It includes a professional biography, experience timeline, publications, mentoring history, and seven full case studies.
+
+## Pages
+
+- [/](/): Homepage with featured case studies and professional summary.
+- [/about](/about): Full biography, work experience, press & publications, mentoring & community involvement, toolkit, and achievements.
+
+## Case Studies
+
+- [/work/elysium](/work/elysium): Elysium Mentalcare — a mental health directory built independently from community to a full-stack product serving 10 million visits, with an AI data-ingestion pipeline.
+- [/work/ruangguru](/work/ruangguru): Ruangguru — gamification redesign that increased conversion-to-learn by 25% and time-in-app by 28%.
+- [/work/knowtex](/work/knowtex): Knowtex — clinical workflow automation with specialty-aware onboarding and EHR integration, saving clinicians 2+ hours daily.
+- [/work/ibm](/work/ibm): IBM — a GenAI stock-anomaly research workflow using IBM watsonx, saving analysts 3 hours per day.
+- [/work/flip](/work/flip): Flip — digitalized KYC/KYB verification and contract signing, reducing business onboarding from a week to under 24 hours.
+- [/work/returnkey](/work/returnkey): ReturnKey — single-scan product enrichment and pricing automation for returned and overstock inventory.
+- [/work/undp](/work/undp): UNDP — offline-enabled digital M&E tool replacing Excel workflows for 174 projects across 16 countries.
